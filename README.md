@@ -50,7 +50,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 - Total Prize Pool: $60,500 USDC
   - HM awards: $41,250 USDC
   - Bot Race awards: $3,750 USDC 
-  - Analysis awards: $12,500 USDC
+  - ✨ Analysis awards: $12,500 USDC
   - QA awards: $1,250 USDC 
   - Gas awards: $1,250 USDC 
   - Judge awards: $6,000 USDC 
@@ -61,6 +61,8 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts June 6, 2023 20:00 UTC 
 - Ends June 13, 2023 20:00 UTC
+
+✨ All participating wardens must submit an Analysis prior to the closing date. [Guidelines and FAQ can be found here.](https://code4rena.notion.site/Analyses-Guidelines-and-FAQ-2808a71e08e44c81a985527194f5f118) The submission form for Analyses is scheduled to go live June 6, 2023.
 
 ## Automated Findings / Publicly Known Issues
 
