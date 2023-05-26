@@ -48,10 +48,11 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 # Llama audit details
 - Total Prize Pool: $60,500 USDC
-  - HM awards: $37,500 USDC
-  - QA awards: $5,000 USDC 
-  - Bot Race awards: $5,000 USDC 
-  - Gas awards: $2,500 USDC 
+  - HM awards: $41,250 USDC
+  - Bot Race awards: $3,750 USDC 
+  - Analysis awards: $12,500 USDC
+  - QA awards: $1,250 USDC 
+  - Gas awards: $1,250 USDC 
   - Judge awards: $6,000 USDC 
   - Lookout awards: $4,000 USDC 
   - Scout awards: $500 USDC 
