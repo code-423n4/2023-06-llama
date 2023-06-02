@@ -58,11 +58,12 @@ All files in the `src/` directory are in scope for the audit contest as well as 
 
 We encourage participants to look for bugs in the following areas:
 
-- Unauthorized action state transitions
-- Unauthorized approval and disapproval manipulation
-- Vulnerabilities in the roles and permissions system in `LlamaPolicy.sol`
-- Additional safety checks to help prevent Llama instances entering a state where new actions cannot be executed
-- Risks that stem from `LlamaExecutor.sol` delegatecalling scripts
+- Unauthorized action state transitions.
+- Unauthorized approval and disapproval manipulation.
+- Vulnerabilities in the roles and permissions system in `LlamaPolicy.sol`.
+- Additional safety checks to help prevent Llama instances entering a state where new actions cannot be executed.
+- Risks that stem from `LlamaExecutor.sol` delegatecalling scripts.
+- Vulnerabilities in `LlamaAccount.sol` that could lead to unauthorized access to funds and assets held in it (Especially risks that stem from the `LlamaAccount.sol` being able to delegatecall arbitrary contracts).
 
 ## Out of scope
 
@@ -70,8 +71,8 @@ The `lib/` directory and acknowledged findings from our previous audit are out o
 
 # Assumptions
 
-- The root Llama instance deployed in the `LlamaFactory.sol` constructor will govern Llama instance deployments
-- Llama instances are self-governed and standalone
+- The root Llama instance deployed in the `LlamaFactory.sol` constructor will govern Llama instance deployments.
+- Llama instances are self-governed and standalone.
 
 # Build & Tests
 
@@ -91,10 +92,6 @@ You can get Solidity support for Visual Studio Code by installing the [Hardhat S
 $ git clone https://github.com/llamaxyz/llama.git
 $ cd llama
 $ forge install
-
-# Configure git to ignore commits that aren't relevant to git blame. Read the
-# comments in the `.git-blame-ignore-revs` file for more information.
-$ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 ## Setup
