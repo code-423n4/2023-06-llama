@@ -86,8 +86,8 @@ All files in the `src/` directory are in scope for the audit contest as well as 
 | [`src/LlamaPolicyMetadata.sol`](llama/src/LlamaPolicyMetadata.sol) | 75 | Utility contract to compute llama policy metadata. |
 | [`src/LlamaPolicyMetadataParamRegistry.sol`](llama/src/LlamaPolicyMetadataParamRegistry.sol) | 38 | Parameter Registry contract for onchain SVG colors and logos |
 | [`script/CreateAction.s.sol`](script/CreateAction.s.sol) | 47 | A script to automate action creation on a Llama instance. |
-| [`script//DeployLlama.s.sol`](script/DeployLlama.s.sol) | 72 | A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance. |
-| [`script/DeployUtils.sol` ](script/DeployUtils.sol) | 181 | A library full of helper functions used throughout the scripts directory |
+| [`script//DeployLlama.s.sol`](script/DeployLlama.s.sol) | 74 | A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance. |
+| [`script/DeployUtils.sol` ](script/DeployUtils.sol) | 185 | A library full of helper functions used throughout the scripts directory |
 
 ## Out of scope
 
@@ -104,7 +104,7 @@ _Sponsor, please confirm/edit the information below._
 ```
 - If you have a public code repo, please share it here:  N/A
 - How many contracts are in scope?: 27
-- Total SLoC for these contracts?: todo
+- Total SLoC for these contracts?: 2488
 - How many external imports are there?: 5
 - How many separate interfaces and struct definitions are there for the contracts within scope?:  7 and 15
 - Does most of your code generally use composition or inheritance?: Composition
