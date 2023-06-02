@@ -63,7 +63,7 @@ All files in the `src/` directory are in scope for the audit contest as well as 
 | ----------- | ----------- | ----------- |
 | [`src/accounts/LlamaAccount.sol`](llama/src/accounts/LlamaAccount.sol) | 187 | This contract can be used to hold assets for a Llama instance. |
 | [`src/interfaces/ILlamaAccount.sol`](llama/interfaces/ILlamaAccount.sol) | 5 | An interface for Llama accounts. |
-| [src/interfaces/ILlamaActionGuard.sol](llama/interfaces/ILlamaActionGuard.sol) | 7 | An interface for Llama action guards. |
+| [`src/interfaces/ILlamaActionGuard.sol`](llama/interfaces/ILlamaActionGuard.sol) | 7 | An interface for Llama action guards. |
 | [`src/interfaces/ILlamaStrategy.sol`](llama/interfaces/ILlamaStrategy.sol) | 23 | An interface for Llama strategies. |
 | [`src/lib/Checkpoints.sol`](llama/src/lib/Checkpoints.sol) | 159 | A modified version of [OpenZeppelin's `Checkpoints.sol`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d00acef4059807535af0bd0dd0ddf619747a044b/contracts/utils/Checkpoints.sol). |
 | [`src/lib/Enums.sol`](llama/src/lib/Enums.sol) | 10 | A file containing the enumerables used throughout the Llama codebase. |
