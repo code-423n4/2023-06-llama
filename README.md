@@ -95,10 +95,10 @@ All files in the `src/` directory are in scope for the audit contest as well as 
 | [`src/llama-scripts/BaseScript.sol`](llama/src/llama-scripts/BaseScript.sol) | 12 | A template for creating new llama scripts. |
 | [`src/llama-scripts/GovernanceScript.sol`](llama/src/llama-scripts/GovernanceScript.sol) | 161 | A script that allows users to aggregate common calls on the core and policy contracts. |
 | [`src/llama-scripts/SingleUseScript.sol`](llama/src/llama-scripts/SingleUseScript.sol) | 15 | A template script for scripts that should only be run once. |
-| [`src/strategies/AbsolutePeerReview.sol`](llama/src/strategies/AbsolutePeerReview.sol) | 42 | - A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions. |
-| [`src/strategies/AbsoluteQuorum.sol`](llama/src/strategies/AbsoluteQuorum.sol) | 38 | - A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions. |
-| [`src/strategies/AbsoluteStrategyBase.sol`](llama/src/strategies/AbsoluteStrategyBase.sol) | 142 | - A base contract for Llama strategies to inherit from with absolute approval/disapproal properties. |
-| [`src/strategies/RelativeQuorum.sol`](llama/src/strategies/RelativeQuorum.sol) | 151 | - A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions. |
+| [`src/strategies/AbsolutePeerReview.sol`](llama/src/strategies/AbsolutePeerReview.sol) | 42 | A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions. |
+| [`src/strategies/AbsoluteQuorum.sol`](llama/src/strategies/AbsoluteQuorum.sol) | 38 | A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions. |
+| [`src/strategies/AbsoluteStrategyBase.sol`](llama/src/strategies/AbsoluteStrategyBase.sol) | 142 | A base contract for Llama strategies to inherit from with absolute approval/disapproal properties. |
+| [`src/strategies/RelativeQuorum.sol`](llama/src/strategies/RelativeQuorum.sol) | 151 | A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions. |
 | [`src/LlamaCore.sol`](llama/src/LlamaCore.sol) | 454 | Manages the action process from creation to execution. |
 | [`src/LlamaExecutor.sol`](llama/src/LlamaExecutor.sol) | 15 | The exit point of a Llama instance. It calls the target contract during action execution. |
 | [`src/LlamaFactory.sol`](llama/src/LlamaFactory.sol) | 157 | Factory for deploying new Llama instances. |
