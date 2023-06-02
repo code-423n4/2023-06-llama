@@ -103,3 +103,22 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Compiler files
+cache/
+out/
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*/31337/
+/broadcast/**/dry-run/
+
+# Dotenv file
+.env
+
+# Build dependencies
+node_modules/
+bin/
+
+# macOS files
+.DS_Store
