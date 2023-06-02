@@ -74,11 +74,47 @@ Automated findings output for the audit can be found [here](add link to report) 
 
 # Overview
 
-*Please provide some context about the code being audited, and identify any areas of specific concern in reviewing the code. (This is a good place to link to your docs, if you have them.)*
+Llama is a governance system for onchain organizations. Llama enables organizations to encode access control policies, create rules to execute actions, and manage shared accounts.
 
 # Scope
 
 *List all files in scope in the table below (along with hyperlinks) -- and feel free to add notes here to emphasize areas of focus.*
+
+All files in the `src/` directory are in scope for the audit contest as well as the `.sol` files in `script/`:
+**`src/`:**
+- **`accounts/`:**
+  - `LlamaAccount.sol` - A minimal proxy contract that is used to hold assets for a Llama instance.
+- **`interfaces/`:**
+  - `IActionGuard.sol` - An interface for Llama action guards.
+  - `ILlamaAccount.sol` - An interface for Llama accounts.
+  - `ILlamaStrategy.sol` - An interface for Llama strategies.
+- **`lib/`:**
+  - `Checkpoints.sol` - A modified version of [OpenZeppelin's `Checkpoints.sol`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d00acef4059807535af0bd0dd0ddf619747a044b/contracts/utils/Checkpoints.sol).
+  - `Enums.sol` - A file containing the enumerables used throughout the Llama codebase.
+  - `ERC721NonTransferableMinimalProxy.sol` - A modified version of [Solmate's ERC721 contract](https://github.com/transmissions11/solmate/blob/34d20fc027fe8d50da71428687024a29dc01748b/src/tokens/ERC721.sol).
+  - `LlamaUtils.sol` - A library of helper functions used throughout the Llama codebase.
+  - `Structs.sol` - A file containing the structs that are used in more than one src contract throughout the Llama codebase.
+  - `UDVTs.sol` - A file containing the [UDVTs](https://docs.soliditylang.org/en/v0.8.10/types.html#user-defined-value-types) used throughout the Llama codebase.
+- **`llama-scripts/`:**
+  - `BaseScript.sol` - A template for creating new llama scripts.
+  - `GovernanceScript.sol` - A script that allows users to aggregate common calls on the core and policy contracts.
+  - `SingleUseScript.sol` - A template script for scripts that should only be run once.
+- **`strategies/`:**
+  - `AbsolutePeerReview.sol` - A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions.
+  - `AbsoluteQuorum.sol` - A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions.
+  - `AbsoluteStrategyBase.sol` - A base contract for Llama strategies to inherit from with absolute approval/disapproal properties.
+  - `RelativeQuorum.sol` - A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions.
+- `LlamaCore.sol` - Manages the action process from creation to execution.
+- `LlamaExecutor.sol` - The exit point of a Llama instance. It calls the target contract during action execution.
+- `LlamaFactory.sol` - Factory for deploying new Llama instances.
+- `LlamaLens.sol` - Utility contract to compute Llama contract addresses and permission IDs.
+- `LlamaPolicy.sol` - An ERC721 contract where each token is non-transferable and has roles assigned to create, approve and disapprove actions.
+- `LlamaPolicyMetadata.sol` - Utility contract to compute llama policy metadata.
+- `LlamaPolicyMetadataParamRegistry.sol` - Parameter Registry contract for onchain SVG colors and logos
+**`script/`:**
+  - `CreateAction.s.sol` - A script to automate action creation on a Llama instance.
+  - `DeployLlama.s.sol` - A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance.
+  - `DeployUtils.sol` - A library full of helper functions used throughout the scripts directory
 
 *For line of code counts, we recommend using [cloc](https://github.com/AlDanial/cloc).* 
 
@@ -88,7 +124,7 @@ Automated findings output for the audit can be found [here](add link to report) 
 
 ## Out of scope
 
-*List any files/contracts that are out of scope for this audit.*
+The `lib/` directory is out of scope for the audit contest.
 
 # Additional Context
 
@@ -99,8 +135,8 @@ Automated findings output for the audit can be found [here](add link to report) 
 ## Scoping Details 
 ```
 - If you have a public code repo, please share it here:  N/A
-- How many contracts are in scope?: 16  
-- Total SLoC for these contracts?: 1750 
+- How many contracts are in scope?: 27  
+- Total SLoC for these contracts?: todo 
 - How many external imports are there?: 5
 - How many separate interfaces and struct definitions are there for the contracts within scope?:  7 and 15
 - Does most of your code generally use composition or inheritance?: Composition  
@@ -110,11 +146,11 @@ Automated findings output for the audit can be found [here](add link to report) 
 - Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: No 
 - Please describe required context: N/A 
 - Does it use an oracle?: No
-- Does the token conform to the ERC20 standard?:  
+- Does the token conform to the ERC20 standard?: N/A
 - Are there any novel or unique curve logic or mathematical models?: N/A
 - Does it use a timelock function?: Yes
 - Is it an NFT?: Yes
-- Does it have an AMM?:   
+- Does it have an AMM?: No
 - Is it a fork of a popular project?: No
 - Does it use rollups?: Yes   
 - Is it multi-chain?: Yes
@@ -123,6 +159,8 @@ Automated findings output for the audit can be found [here](add link to report) 
 
 # Tests
 
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.* 
+TODO: link to README.md for test and installation instructions
 
 *Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.* 
+
+TODO: link to slither instructions
