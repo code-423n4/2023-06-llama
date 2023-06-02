@@ -1,128 +1,134 @@
-# ✨ So you want to run an audit
+![Llama](https://llama.xyz/images/llama-banner.png)
 
-This `README.md` contains a set of checklists for our audit collaboration.
+# Llama Audit Details
 
-Your audit will use two repos: 
-- **an _audit_ repo** (this one), which is used for scoping your audit and for providing information to wardens
-- **a _findings_ repo**, where issues are submitted (shared with you after the audit) 
-
-Ultimately, when we launch the audit, this repo will be made public and will contain the smart contracts to be reviewed and all the information needed for audit participants. The findings repo will be made public after the audit report is published and your team has mitigated the identified issues.
-
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the audit sponsor (⭐️)**.
-
----
-
-# Repo setup
-
-## ⭐️ Sponsor: Add code to this repo
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 24 hours prior to audit start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the audit — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the audit. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-
-
----
-
-## ⭐️ Sponsor: Edit this README
-
-Under "SPONSORS ADD INFO HERE" heading below, include the following:
-
-- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2022-08-foundation#readme))
-  - [ ] When linking, please provide all links as full absolute links versus relative links
-  - [ ] All information should be provided in markdown format (HTML does not render on Code4rena.com)
-- [ ] Under the "Scope" heading, provide the name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
-- [ ] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
-- [ ] Describe anything else that adds any special logic that makes your approach unique
-- [ ] Identify any areas of specific concern in reviewing the code
-- [ ] Optional / nice to have: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] See also: [this checklist in Notion](https://code4rena.notion.site/Key-info-for-Code4rena-sponsors-f60764c4c4574bbf8e7a6dbd72cc49b4#0cafa01e6201462e9f78677a39e09746)
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
-# Llama audit details
 - Total Prize Pool: $60,500 USDC
   - HM awards: $41,250 USDC
-  - Bot Race awards: $3,750 USDC 
+  - Bot Race awards: $3,750 USDC
   - ✨ Analysis awards: $12,500 USDC
-  - QA awards: $1,250 USDC 
-  - Gas awards: $1,250 USDC 
-  - Judge awards: $6,000 USDC 
-  - Lookout awards: $4,000 USDC 
-  - Scout awards: $500 USDC 
+  - QA awards: $1,250 USDC
+  - Gas awards: $1,250 USDC
+  - Judge awards: $6,000 USDC
+  - Lookout awards: $4,000 USDC
+  - Scout awards: $500 USDC
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2023-05-llama/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
-- Starts June 6, 2023 20:00 UTC 
+- Starts June 6, 2023 20:00 UTC
 - Ends June 13, 2023 20:00 UTC
 
 ✨ All participating wardens must submit an Analysis prior to the closing date. [Guidelines and FAQ can be found here.](https://code4rena.notion.site/Analyses-Guidelines-and-FAQ-2808a71e08e44c81a985527194f5f118) The submission form for Analyses is scheduled to go live June 6, 2023.
 
-## Automated Findings / Publicly Known Issues
-
-Automated findings output for the audit can be found [here](add link to report) within 24 hours of audit opening.
-
-*Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
-
-[ ⭐️ SPONSORS ADD INFO HERE ]
-
 # Overview
 
-*Please provide some context about the code being audited, and identify any areas of specific concern in reviewing the code. (This is a good place to link to your docs, if you have them.)*
+Llama is a governance system for onchain organizations. It uses non-transferable NFTs to encode access control, features programmatic control of funds, and includes a modular framework to define action execution rules.
 
 # Scope
 
-*List all files in scope in the table below (along with hyperlinks) -- and feel free to add notes here to emphasize areas of focus.*
+All files in the `src/` directory are in scope for the audit contest as well as the `.sol` files in `script/`:
+| Contract | SLOC | Purpose |  
+| ----------- | ----------- | ----------- |
+| [`src/accounts/LlamaAccount.sol`](src/accounts/LlamaAccount.sol) | 187 | This contract can be used to hold assets for a Llama instance. |
+| [`src/interfaces/ILlamaAccount.sol`](interfaces/ILlamaAccount.sol) | 5 | An interface for Llama accounts. |
+| [`src/interfaces/ILlamaActionGuard.sol`](interfaces/ILlamaActionGuard.sol) | 7 | An interface for Llama action guards. |
+| [`src/interfaces/ILlamaStrategy.sol`](interfaces/ILlamaStrategy.sol) | 23 | An interface for Llama strategies. |
+| [`src/lib/Checkpoints.sol`](src/lib/Checkpoints.sol) | 159 | A modified version of [OpenZeppelin's `Checkpoints.sol`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d00acef4059807535af0bd0dd0ddf619747a044b/contracts/utils/Checkpoints.sol). |
+| [`src/lib/Enums.sol`](src/lib/Enums.sol) | 10 | A file containing the enumerables used throughout the Llama codebase. |
+| [`src/lib/ERC721NonTransferableMinimalProxy.sol`](src/lib/ERC721NonTransferableMinimalProxy.sol) | 96 | A modified version of [Solmate's ERC721 contract](https://github.com/transmissions11/solmate/blob/34d20fc027fe8d50da71428687024a29dc01748b/src/tokens/ERC721.sol). |
+| [`src/lib/LlamaUtils.sol`](src/lib/LlamaUtils.sol) | 17 | A library of helper functions used throughout the Llama codebase. |
+| [`src/lib/Structs.sol`](src/lib/Structs.sol) | 37 | A file containing the structs that are used in more than one src contract throughout the Llama codebase. |
+| [`src/lib/UDVTs.sol`](src/lib/UDVTs.sol) | 2 | A file containing the [UDVTs](https://docs.soliditylang.org/en/v0.8.10/types.html#user-defined-value-types) used throughout the Llama codebase. |
+| [`src/llama-scripts/LlamaBaseScript.sol`](src/llama-scripts/LlamaBaseScript.sol) | 12 | A template for creating new llama scripts. |
+| [`src/llama-scripts/LlamaGovernanceScript.sol`](src/llama-scripts/LlamaGovernanceScript.sol) | 161 | A script that allows users to aggregate common calls on the core and policy contracts. |
+| [`src/llama-scripts/LlamaSingleUseScript.sol`](src/llama-scripts/LlamaSingleUseScript.sol) | 15 | A template script for scripts that should only be run once. |
+| [`src/strategies/LlamaAbsolutePeerReview.sol`](src/strategies/LlamaAbsolutePeerReview.sol) | 42 | A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions. |
+| [`src/strategies/LlamaAbsoluteQuorum.sol`](src/strategies/LlamaAbsoluteQuorum.sol) | 38 | A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions. |
+| [`src/strategies/LlamaAbsoluteStrategyBase.sol`](src/strategies/LlamaAbsoluteStrategyBase.sol) | 142 | A base contract for Llama strategies to inherit from with absolute approval/disapproval properties. |
+| [`src/strategies/LlamaRelativeQuorum.sol`](src/strategies/LlamaRelativeQuorum.sol) | 151 | A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions. |
+| [`src/LlamaCore.sol`](src/LlamaCore.sol) | 448 | Manages the action process from creation to execution. |
+| [`src/LlamaExecutor.sol`](src/LlamaExecutor.sol) | 15 | The exit point of a Llama instance. It calls the target contract during action execution. |
+| [`src/LlamaFactory.sol`](src/LlamaFactory.sol) | 157 | Factory for deploying new Llama instances. |
+| [`src/LlamaLens.sol`](src/LlamaLens.sol) | 85 | Utility contract to compute Llama contract addresses and permission IDs. |
+| [`src/LlamaPolicy.sol`](src/LlamaPolicy.sol) | 260 | An ERC721 contract where each token is non-transferable and has roles assigned to create, approve and disapprove actions. |
+| [`src/LlamaPolicyMetadata.sol`](src/LlamaPolicyMetadata.sol) | 75 | Utility contract to compute llama policy metadata. |
+| [`src/LlamaPolicyMetadataParamRegistry.sol`](src/LlamaPolicyMetadataParamRegistry.sol) | 38 | Parameter Registry contract for onchain SVG colors and logos |
+| [`script/CreateAction.s.sol`](script/CreateAction.s.sol) | 47 | A script to automate action creation on a Llama instance. |
+| [`script/DeployLlama.s.sol`](script/DeployLlama.s.sol) | 74 | A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance. |
+| [`script/DeployUtils.sol` ](script/DeployUtils.sol) | 185 | A library full of helper functions used throughout the scripts directory |
 
-*For line of code counts, we recommend using [cloc](https://github.com/AlDanial/cloc).* 
+We encourage participants to look for bugs in the following areas:
 
-| Contract | SLOC | Purpose | Libraries used |  
-| ----------- | ----------- | ----------- | ----------- |
-| [contracts/folder/sample.sol](contracts/folder/sample.sol) | 123 | This contract does XYZ | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
+- Unauthorized action state transitions
+- Unauthorized approval and disapproval manipulation
+- Vulnerabilities in the roles and permissions system in `LlamaPolicy.sol`
+- Additional safety checks to help prevent Llama instances entering a state where new actions cannot be executed
+- Risks that stem from `LlamaExecutor.sol` delegatecalling scripts
 
 ## Out of scope
 
-*List any files/contracts that are out of scope for this audit.*
+The `lib/` directory and acknowledged findings from our previous audit are out of scope for this audit contest.
 
-# Additional Context
+# Assumptions
 
-*Describe any novel or unique curve logic or mathematical models implemented in the contracts*
+- The root Llama instance deployed in the `LlamaFactory.sol` constructor will govern Llama instance deployments
+- Llama instances are self-governed and standalone
 
-*Sponsor, please confirm/edit the information below.*
+# Build & Tests
 
-## Scoping Details 
-```
-- If you have a public code repo, please share it here:  N/A
-- How many contracts are in scope?: 16  
-- Total SLoC for these contracts?: 1750 
-- How many external imports are there?: 5
-- How many separate interfaces and struct definitions are there for the contracts within scope?:  7 and 15
-- Does most of your code generally use composition or inheritance?: Composition  
-- How many external calls?: 1  
-- What is the overall line coverage percentage provided by your tests?: 90
-- Is this an upgrade of an existing system? No
-- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: No 
-- Please describe required context: N/A 
-- Does it use an oracle?: No
-- Does the token conform to the ERC20 standard?:  
-- Are there any novel or unique curve logic or mathematical models?: N/A
-- Does it use a timelock function?: Yes
-- Is it an NFT?: Yes
-- Does it have an AMM?:   
-- Is it a fork of a popular project?: No
-- Does it use rollups?: Yes   
-- Is it multi-chain?: Yes
-- Does it use a side-chain?: No
+## Prerequisites
+
+It requires [Foundry](https://github.com/foundry-rs/foundry) installed to run. You can find instructions here: [Foundry installation](https://book.getfoundry.sh/getting-started/installation).
+
+We use [just](https://github.com/casey/just) to save and run commands. You can find instructions here: [just installation](https://github.com/casey/just#packages).
+
+### VS Code
+
+You can get Solidity support for Visual Studio Code by installing the [Hardhat Solidity extension](https://github.com/NomicFoundation/hardhat-vscode).
+
+## Installation
+
+```sh
+$ git clone https://github.com/llamaxyz/llama.git
+$ cd llama
+$ forge install
+
+# Configure git to ignore commits that aren't relevant to git blame. Read the
+# comments in the `.git-blame-ignore-revs` file for more information.
+$ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
-# Tests
+## Setup
 
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.* 
+Duplicate `.env.example` and rename to `.env`:
 
-*Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.* 
+- Add a valid mainnet URL for an Ethereum JSON-RPC client for the `MAINNET_RPC_URL` variable.
+- Add a valid Private Key for the `PRIVATE_KEY` variable.
+- Add a valid Etherscan API Key for the `ETHERSCAN_API_KEY` variable.
+
+### Commands
+
+- `forge build` - build the project
+- `forge test` - run tests
+
+### Deploy and Verify
+
+- `just deploy` - deploy and verify payload on mainnet
+
+To confirm the deploy was successful, re-run your test suite but use the newly created contract address.
+
+## Documentation
+
+Run the following command to generate smart contract reference documentation from this project's NatSpec comments and serve those static files locally:
+
+```sh
+$ forge doc -o reference/ -b -s
+```
+
+## Slither
+
+Use our bash script to prevent slither from analyzing the test and script directories. Running `slither .` directly will result in an `AssertionError`.
+
+```sh
+$ chmod +x slither.sh
+$ ./slither.sh
+```
