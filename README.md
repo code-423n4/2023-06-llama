@@ -82,7 +82,7 @@ Llama is a governance system for onchain organizations. Llama enables organizati
 All files in the `src/` directory are in scope for the audit contest as well as the `.sol` files in `script/`:
 | Contract | SLOC | Purpose |  
 | ----------- | ----------- | ----------- |
-| [`src/accounts/LlamaAccount.sol](llama/src/accounts/LlamaAccount.sol)` | | A minimal proxy contract that is used to hold assets for a Llama instance. |
+| [`src/accounts/LlamaAccount.sol`](llama/src/accounts/LlamaAccount.sol) | | A minimal proxy contract that is used to hold assets for a Llama instance. |
 | [`interfaces/IActionGuard.sol`](llama/interfaces/IActionGuard.sol) | | An interface for Llama action guards. |
 | [`interfaces/ILlamaAccount.sol`](llama/interfaces/ILlamaAccount.sol) | | An interface for Llama accounts. |
 | [`interfaces/ILlamaStrategy.sol`](llama/interfaces/ILlamaStrategy.sol) | | An interface for Llama strategies. |
