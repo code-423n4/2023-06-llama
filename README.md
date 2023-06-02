@@ -82,33 +82,33 @@ Llama is a governance system for onchain organizations. Llama enables organizati
 All files in the `src/` directory are in scope for the audit contest as well as the `.sol` files in `script/`:
 | Contract | SLOC | Purpose |  
 | ----------- | ----------- | ----------- |
-| [`src/accounts/LlamaAccount.sol`](llama/src/accounts/LlamaAccount.sol) | | A minimal proxy contract that is used to hold assets for a Llama instance. |
-| [`interfaces/IActionGuard.sol`](llama/interfaces/IActionGuard.sol) | | An interface for Llama action guards. |
-| [`interfaces/ILlamaAccount.sol`](llama/interfaces/ILlamaAccount.sol) | | An interface for Llama accounts. |
-| [`interfaces/ILlamaStrategy.sol`](llama/interfaces/ILlamaStrategy.sol) | | An interface for Llama strategies. |
-| [`lib/Checkpoints.sol`]() | | A modified version of [OpenZeppelin's `Checkpoints.sol`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d00acef4059807535af0bd0dd0ddf619747a044b/contracts/utils/Checkpoints.sol). |
-| [`lib/Enums.sol`](llama/src/lib/Enums.sol) | | A file containing the enumerables used throughout the Llama codebase. |
-| [`lib/ERC721NonTransferableMinimalProxy.sol`](llama/src/lib/ERC721NonTransferableMinimalProxy.sol) | | A modified version of [Solmate's ERC721 contract](https://github.com/transmissions11/solmate/blob/34d20fc027fe8d50da71428687024a29dc01748b/src/tokens/ERC721.sol). |
-| [`lib/LlamaUtils.sol`](llama/src/lib/LlamaUtils.sol) | | A library of helper functions used throughout the Llama codebase. |
-| [`lib/Structs.sol`](llama/src/lib/Structs.sol) | | A file containing the structs that are used in more than one src contract throughout the Llama codebase. |
-| [`lib/UDVTs.sol`](llama/src/lib/UDVTs.sol) | | A file containing the [UDVTs](https://docs.soliditylang.org/en/v0.8.10/types.html#user-defined-value-types) used throughout the Llama codebase. |
-| [`llama-scripts/BaseScript.sol`](llama/src/llama-scripts/BaseScript.sol) | | A template for creating new llama scripts. |
-| [`llama-scripts/GovernanceScript.sol`](llama/src/llama-scripts/GovernanceScript.sol) | | A script that allows users to aggregate common calls on the core and policy contracts. |
-| [`llama-scripts/SingleUseScript.sol`](llama/src/llama-scripts/SingleUseScript.sol) | | A template script for scripts that should only be run once. |
-| [`strategies/AbsolutePeerReview.sol`](llama/src/strategies/AbsolutePeerReview.sol) | | - A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions. |
-| [`strategies/AbsoluteQuorum.sol`](llama/src/strategies/AbsoluteQuorum.sol) | | - A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions. |
-| [`strategies/AbsoluteStrategyBase.sol`](llama/src/strategies/AbsoluteStrategyBase.sol) | | - A base contract for Llama strategies to inherit from with absolute approval/disapproal properties. |
-| [`strategies/RelativeQuorum.sol`](llama/src/strategies/RelativeQuorum.sol) | | - A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions. |
-| [`LlamaCore.sol`](llama/src/LlamaCore.sol) | | Manages the action process from creation to execution. |
-| [`LlamaExecutor.sol`](llama/src/LlamaExecutor.sol) | | The exit point of a Llama instance. It calls the target contract during action execution. |
-| [`LlamaFactory.sol`](llama/src/LlamaFactory.sol) | | Factory for deploying new Llama instances. |
-| [`LlamaLens.sol`](llama/src/LlamaLens.sol) | | Utility contract to compute Llama contract addresses and permission IDs. |
-| [`LlamaPolicy.sol`](llama/src/LlamaPolicy.sol) | | An ERC721 contract where each token is non-transferable and has roles assigned to create, approve and disapprove actions. |
-| [`LlamaPolicyMetadata.sol`](llama/src/LlamaPolicyMetadata.sol) | | Utility contract to compute llama policy metadata. |
-| [`LlamaPolicyMetadataParamRegistry.sol`](llama/src/LlamaPolicyMetadataParamRegistry.sol) | | Parameter Registry contract for onchain SVG colors and logos |
-| [`CreateAction.s.sol`](script/CreateAction.s.sol) | |  A script to automate action creation on a Llama instance. |
-| [`DeployLlama.s.sol`](script/DeployLlama.s.sol) | |  A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance. |
-| [`DeployUtils.sol` ](script/DeployUtils.sol) | | A library full of helper functions used throughout the scripts directory |
+| [`src/accounts/LlamaAccount.sol`](llama/src/accounts/LlamaAccount.sol) | 161 | A minimal proxy contract that is used to hold assets for a Llama instance. |
+| [`src/interfaces/IActionGuard.sol`](llama/interfaces/IActionGuard.sol) | | An interface for Llama action guards. |
+| [`src/interfaces/ILlamaAccount.sol`](llama/interfaces/ILlamaAccount.sol) | | An interface for Llama accounts. |
+| [`src/interfaces/ILlamaStrategy.sol`](llama/interfaces/ILlamaStrategy.sol) | | An interface for Llama strategies. |
+| [`src/lib/Checkpoints.sol`]() | | A modified version of [OpenZeppelin's `Checkpoints.sol`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d00acef4059807535af0bd0dd0ddf619747a044b/contracts/utils/Checkpoints.sol). |
+| [`src/lib/Enums.sol`](llama/src/lib/Enums.sol) | | A file containing the enumerables used throughout the Llama codebase. |
+| [`src/lib/ERC721NonTransferableMinimalProxy.sol`](llama/src/lib/ERC721NonTransferableMinimalProxy.sol) | | A modified version of [Solmate's ERC721 contract](https://github.com/transmissions11/solmate/blob/34d20fc027fe8d50da71428687024a29dc01748b/src/tokens/ERC721.sol). |
+| [`src/lib/LlamaUtils.sol`](llama/src/lib/LlamaUtils.sol) | | A library of helper functions used throughout the Llama codebase. |
+| [`src/lib/Structs.sol`](llama/src/lib/Structs.sol) | | A file containing the structs that are used in more than one src contract throughout the Llama codebase. |
+| [`src/lib/UDVTs.sol`](llama/src/lib/UDVTs.sol) | | A file containing the [UDVTs](https://docs.soliditylang.org/en/v0.8.10/types.html#user-defined-value-types) used throughout the Llama codebase. |
+| [`src/llama-scripts/BaseScript.sol`](llama/src/llama-scripts/BaseScript.sol) | | A template for creating new llama scripts. |
+| [`src/llama-scripts/GovernanceScript.sol`](llama/src/llama-scripts/GovernanceScript.sol) | | A script that allows users to aggregate common calls on the core and policy contracts. |
+| [`src/llama-scripts/SingleUseScript.sol`](llama/src/llama-scripts/SingleUseScript.sol) | | A template script for scripts that should only be run once. |
+| [`src/strategies/AbsolutePeerReview.sol`](llama/src/strategies/AbsolutePeerReview.sol) | | - A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions. |
+| [`src/strategies/AbsoluteQuorum.sol`](llama/src/strategies/AbsoluteQuorum.sol) | | - A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions. |
+| [`src/strategies/AbsoluteStrategyBase.sol`](llama/src/strategies/AbsoluteStrategyBase.sol) | | - A base contract for Llama strategies to inherit from with absolute approval/disapproal properties. |
+| [`src/strategies/RelativeQuorum.sol`](llama/src/strategies/RelativeQuorum.sol) | | - A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions. |
+| [`src/LlamaCore.sol`](llama/src/LlamaCore.sol) | | Manages the action process from creation to execution. |
+| [`src/LlamaExecutor.sol`](llama/src/LlamaExecutor.sol) | | The exit point of a Llama instance. It calls the target contract during action execution. |
+| [`src/LlamaFactory.sol`](llama/src/LlamaFactory.sol) | | Factory for deploying new Llama instances. |
+| [src/`LlamaLens.sol`](llama/src/LlamaLens.sol) | | Utility contract to compute Llama contract addresses and permission IDs. |
+| [`src/LlamaPolicy.sol`](llama/src/LlamaPolicy.sol) | | An ERC721 contract where each token is non-transferable and has roles assigned to create, approve and disapprove actions. |
+| [`src/LlamaPolicyMetadata.sol`](llama/src/LlamaPolicyMetadata.sol) | | Utility contract to compute llama policy metadata. |
+| [`src/LlamaPolicyMetadataParamRegistry.sol`](llama/src/LlamaPolicyMetadataParamRegistry.sol) | | Parameter Registry contract for onchain SVG colors and logos |
+| [`script/CreateAction.s.sol`](script/CreateAction.s.sol) | |  A script to automate action creation on a Llama instance. |
+| [script//DeployLlama.s.sol`](script/DeployLlama.s.sol) | |  A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance. |
+| [`script/DeployUtils.sol` ](script/DeployUtils.sol) | | A library full of helper functions used throughout the scripts directory |
 
 *For line of code counts, we recommend using [cloc](https://github.com/AlDanial/cloc).* 
 
