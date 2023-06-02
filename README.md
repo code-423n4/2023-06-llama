@@ -53,7 +53,7 @@ All files in the `src/` directory are in scope for the audit contest as well as 
 | [`src/LlamaPolicyMetadata.sol`](src/LlamaPolicyMetadata.sol) | 75 | Utility contract to compute llama policy metadata. |
 | [`src/LlamaPolicyMetadataParamRegistry.sol`](src/LlamaPolicyMetadataParamRegistry.sol) | 38 | Parameter Registry contract for onchain SVG colors and logos |
 | [`script/CreateAction.s.sol`](script/CreateAction.s.sol) | 47 | A script to automate action creation on a Llama instance. |
-| [`script//DeployLlama.s.sol`](script/DeployLlama.s.sol) | 74 | A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance. |
+| [`script/DeployLlama.s.sol`](script/DeployLlama.s.sol) | 74 | A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance. |
 | [`script/DeployUtils.sol` ](script/DeployUtils.sol) | 185 | A library full of helper functions used throughout the scripts directory |
 
 We encourage participants to look for bugs in the following areas:
@@ -67,7 +67,6 @@ We encourage participants to look for bugs in the following areas:
 ## Out of scope
 
 The `lib/` directory and acknowledged findings from our previous audit are out of scope for this audit contest.
-
 
 # Assumptions
 
