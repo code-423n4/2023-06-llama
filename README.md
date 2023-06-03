@@ -100,6 +100,12 @@ The `lib/` directory and acknowledged findings from our previous audit are out o
 
 # Build & Tests
 
+## Quickstart Command
+
+```sh
+export MAINNET_RPC_URL='<YOUR_MAINNET_RPC_URL>' && git clone https://github.com/code-423n4/2023-06-llama && cd 2023-06-llama && foundryup && forge install && forge test
+```
+
 ## Prerequisites
 
 It requires [Foundry](https://github.com/foundry-rs/foundry) installed to run. You can find instructions here: [Foundry installation](https://book.getfoundry.sh/getting-started/installation).
