@@ -21,7 +21,7 @@
 
 ## Automated Findings / Publicly Known Issues
 
-The results of the [slither report](https://github.com/code-423n4/2023-06-llama/blob/main/.slither-report) and acknowledged findings from our [previous audit](https://github.com/code-423n4/2023-06-llama/blob/main/audits/Llama-Spearbit-Audit.pdf) are out of scope for this audit contest.
+The results of the [slither report](https://github.com/code-423n4/2023-06-llama/blob/main/.slither-report) and acknowledged findings from our [Spearbit audit](https://github.com/code-423n4/2023-06-llama/blob/main/audits/Llama-Spearbit-Audit.pdf) are out of scope for this audit contest.
 
 # Overview
 
