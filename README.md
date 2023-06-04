@@ -19,42 +19,107 @@
 
 ✨ All participating wardens must submit an Analysis prior to the closing date. [Guidelines and FAQ can be found here.](https://code4rena.notion.site/Analyses-Guidelines-and-FAQ-2808a71e08e44c81a985527194f5f118) The submission form for Analyses is scheduled to go live June 6, 2023.
 
+## Automated Findings / Publicly Known Issues
+
+The results of the [slither report](https://github.com/code-423n4/2023-06-llama/blob/main/.slither-report) and acknowledged findings from our [Spearbit audit](https://github.com/code-423n4/2023-06-llama/blob/main/audits/Llama-Spearbit-Audit.pdf) are out of scope for this audit contest.
+
 # Overview
 
 Llama is a governance system for onchain organizations. It uses non-transferable NFTs to encode access control, features programmatic control of funds, and includes a modular framework to define action execution rules.
 
+## Documentation
+
+The [video explainer](https://www.loom.com/) provides a high-level overview of the Llama system and the [docs](https://github.com/code-423n4/2023-06-llama/blob/main/docs/overview.md) describe the core components.
+
 # Scope
 
-All files in the `src/` directory are in scope for the audit contest as well as the `.sol` files in `script/`:
-| Contract | SLOC | Purpose |  
-| ----------- | ----------- | ----------- |
-| [`src/accounts/LlamaAccount.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol) | 187 | This contract can be used to hold assets for a Llama instance. |
-| [`src/interfaces/ILlamaAccount.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaAccount.sol) | 5 | An interface for Llama accounts. |
-| [`src/interfaces/ILlamaActionGuard.sol`](interfaces/ILlamaActionGuard.sol) | 7 | An interface for Llama action guards. |
-| [`src/interfaces/ILlamaStrategy.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaActionGuard.sol) | 23 | An interface for Llama strategies. |
-| [`src/lib/Checkpoints.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Checkpoints.sol) | 159 | A modified version of [OpenZeppelin's `Checkpoints.sol`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d00acef4059807535af0bd0dd0ddf619747a044b/contracts/utils/Checkpoints.sol). |
-| [`src/lib/Enums.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Enums.sol) | 10 | A file containing the enumerables used throughout the Llama codebase. |
-| [`src/lib/ERC721NonTransferableMinimalProxy.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/ERC721NonTransferableMinimalProxy.sol) | 96 | A modified version of [Solmate's ERC721 contract](https://github.com/transmissions11/solmate/blob/34d20fc027fe8d50da71428687024a29dc01748b/src/tokens/ERC721.sol). |
-| [`src/lib/LlamaUtils.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/LlamaUtils.sol) | 17 | A library of helper functions used throughout the Llama codebase. |
-| [`src/lib/Structs.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Structs.sol) | 37 | A file containing the structs that are used in more than one src contract throughout the Llama codebase. |
-| [`src/lib/UDVTs.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/UDVTs.sol) | 2 | A file containing the [UDVTs](https://docs.soliditylang.org/en/v0.8.10/types.html#user-defined-value-types) used throughout the Llama codebase. |
-| [`src/llama-scripts/LlamaBaseScript.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/llama-scripts/LlamaBaseScript.sol) | 12 | A template for creating new llama scripts. |
-| [`src/llama-scripts/LlamaGovernanceScript.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/llama-scripts/LlamaGovernanceScript.sol) | 161 | A script that allows users to aggregate common calls on the core and policy contracts. |
-| [`src/llama-scripts/LlamaSingleUseScript.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/llama-scripts/LlamaSingleUseScript.sol) | 15 | A template script for scripts that should only be run once. |
-| [`src/strategies/LlamaAbsolutePeerReview.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsolutePeerReview.sol) | 42 | A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions. |
-| [`src/strategies/LlamaAbsoluteQuorum.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteQuorum.sol) | 38 | A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions. |
-| [`src/strategies/LlamaAbsoluteStrategyBase.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteStrategyBase.sol) | 142 | A base contract for Llama strategies to inherit from with absolute approval/disapproval properties. |
-| [`src/strategies/LlamaRelativeQuorum.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaRelativeQuorum.sol) | 151 | A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions. |
-| [`src/LlamaCore.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaCore.sol) | 448 | Manages the action process from creation to execution. |
-| [`src/LlamaExecutor.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaExecutor.sol) | 15 | The exit point of a Llama instance. It calls the target contract during action execution. |
-| [`src/LlamaFactory.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaFactory.sol) | 157 | Factory for deploying new Llama instances. |
-| [`src/LlamaLens.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaLens.sol) | 85 | Utility contract to compute Llama contract addresses and permission IDs. |
-| [`src/LlamaPolicy.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicy.sol) | 260 | An ERC721 contract where each token is non-transferable and has roles assigned to create, approve and disapprove actions. |
-| [`src/LlamaPolicyMetadata.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadata.sol) | 75 | Utility contract to compute llama policy metadata. |
-| [`src/LlamaPolicyMetadataParamRegistry.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadataParamRegistry.sol) | 38 | Parameter Registry contract for onchain SVG colors and logos |
-| [`script/CreateAction.s.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/script/CreateAction.s.sol) | 47 | A script to automate action creation on a Llama instance. |
-| [`script/DeployLlama.s.sol`](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployLlama.s.sol) | 74 | A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance. |
-| [`script/DeployUtils.sol` ](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol) | 185 | A library full of helper functions used throughout the scripts directory |
+## Files in scope
+
+|File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|Description and [Coverage](#nowhere "(Lines hit / Total)")|Libraries|
+|:-|:-:|:-|:-|
+|_Contracts (14)_|
+|[src/LlamaExecutor.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaExecutor.sol) [👥](#nowhere "DelegateCall")|[15](#nowhere "(nSLOC:12, SLOC:15, Lines:36)")|The exit point of a Llama instance. It calls the target contract during action execution., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:2 / Total:2)")||
+|[src/LlamaPolicyMetadataParamRegistry.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadataParamRegistry.sol)|[38](#nowhere "(nSLOC:38, SLOC:38, Lines:94)")|Parameter Registry contract for onchain SVG colors and logos, &nbsp;&nbsp;[100.00%](#nowhere "(Hit:6 / Total:6)")||
+|[src/strategies/LlamaAbsoluteQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteQuorum.sol)|[38](#nowhere "(nSLOC:30, SLOC:38, Lines:63)")|A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions., &nbsp;&nbsp;[90.91%](#nowhere "(Hit:10 / Total:11)")| `@openzeppelin/*` `solmate/*`|
+|[src/strategies/LlamaAbsolutePeerReview.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsolutePeerReview.sol) [Σ](#nowhere "Unchecked Blocks")|[42](#nowhere "(nSLOC:38, SLOC:42, Lines:83)")|A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:15 / Total:15)")| `@openzeppelin/*` `solmate/*`|
+|[script/CreateAction.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/CreateAction.s.sol)|[47](#nowhere "(nSLOC:47, SLOC:47, Lines:66)")|A script to automate action creation on a Llama instance., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:12)")| `forge-std/*` `script/*`|
+|[script/DeployLlama.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployLlama.s.sol) [🌀](#nowhere "create/create2")|[74](#nowhere "(nSLOC:74, SLOC:74, Lines:98)")|A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:30)")| `forge-std/*` `script/*`|
+|[src/LlamaPolicyMetadata.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadata.sol)|[75](#nowhere "(nSLOC:71, SLOC:75, Lines:115)")|Utility contract to compute llama policy metadata., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:39 / Total:39)")| `@openzeppelin/*` `solady/*`|
+|[src/LlamaLens.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaLens.sol) [🧮](#nowhere "Uses Hash-Functions")|[85](#nowhere "(nSLOC:77, SLOC:85, Lines:169)")|Utility contract to compute Llama contract addresses and permission IDs., &nbsp;&nbsp;[80.00%](#nowhere "(Hit:16 / Total:20)")| `@openzeppelin/*`|
+|[src/strategies/LlamaRelativeQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaRelativeQuorum.sol)|[151](#nowhere "(nSLOC:147, SLOC:151, Lines:327)")|A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:60 / Total:60)")| `@openzeppelin/*` `solmate/*`|
+|[src/LlamaFactory.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaFactory.sol) [🧮](#nowhere "Uses Hash-Functions") [🌀](#nowhere "create/create2")|[157](#nowhere "(nSLOC:133, SLOC:157, Lines:289)")|Factory for deploying new Llama instances., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:29 / Total:29)")| `@openzeppelin/*`|
+|[src/llama-scripts/LlamaGovernanceScript.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/llama-scripts/LlamaGovernanceScript.sol)|[161](#nowhere "(nSLOC:125, SLOC:161, Lines:226)")|A script that allows users to aggregate common calls on the core and policy contracts., &nbsp;&nbsp;[53.45%](#nowhere "(Hit:31 / Total:58)")||
+|[src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol) [🖥](#nowhere "Uses Assembly") [💰](#nowhere "Payable Functions") [👥](#nowhere "DelegateCall")|[187](#nowhere "(nSLOC:182, SLOC:187, Lines:343)")|This contract can be used to hold assets for a Llama instance., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:51 / Total:51)")| `@openzeppelin/*`|
+|[src/LlamaPolicy.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicy.sol) [Σ](#nowhere "Unchecked Blocks")|[260](#nowhere "(nSLOC:236, SLOC:260, Lines:536)")|An ERC721 contract where each token is non-transferable and has roles assigned to create, approve and disapprove actions., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:104 / Total:104)")| `solady/*`|
+|[src/LlamaCore.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaCore.sol) [💰](#nowhere "Payable Functions") [🧮](#nowhere "Uses Hash-Functions") [🔖](#nowhere "Handles Signatures: ecrecover") [🌀](#nowhere "create/create2")|[448](#nowhere "(nSLOC:361, SLOC:448, Lines:803)")|Manages the action process from creation to execution., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:143 / Total:143)")| `@openzeppelin/*`|
+|_Abstracts (4)_|
+|[src/llama-scripts/LlamaBaseScript.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/llama-scripts/LlamaBaseScript.sol)|[12](#nowhere "(nSLOC:12, SLOC:12, Lines:23)")|A template for creating new llama scripts., &nbsp;&nbsp;-||
+|[src/llama-scripts/LlamaSingleUseScript.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/llama-scripts/LlamaSingleUseScript.sol)|[15](#nowhere "(nSLOC:15, SLOC:15, Lines:27)")|A template script for scripts that should only be run once., &nbsp;&nbsp;-||
+|[src/lib/ERC721NonTransferableMinimalProxy.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/ERC721NonTransferableMinimalProxy.sol) [Σ](#nowhere "Unchecked Blocks")|[96](#nowhere "(nSLOC:96, SLOC:96, Lines:192)")|A modified version of Solmate's ERC721 contract., &nbsp;&nbsp;[72.22%](#nowhere "(Hit:26 / Total:36)")| `@openzeppelin/*`|
+|[src/strategies/LlamaAbsoluteStrategyBase.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteStrategyBase.sol)|[141](#nowhere "(nSLOC:131, SLOC:141, Lines:307)")|A base contract for Llama strategies to inherit from with absolute approval/disapproval properties., &nbsp;&nbsp;[86.00%](#nowhere "(Hit:43 / Total:50)")| `@openzeppelin/*` `solmate/*`|
+|_Libraries (3)_|
+|[src/lib/LlamaUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/LlamaUtils.sol) [Σ](#nowhere "Unchecked Blocks")|[17](#nowhere "(nSLOC:17, SLOC:17, Lines:27)")|A library of helper functions used throughout the Llama codebase., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:5)")||
+|[src/lib/Checkpoints.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Checkpoints.sol) [🖥](#nowhere "Uses Assembly")|[159](#nowhere "(nSLOC:131, SLOC:159, Lines:286)")|A modified version of OpenZeppelin's Checkpoints.sol., &nbsp;&nbsp;[51.43%](#nowhere "(Hit:36 / Total:70)")||
+|[script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol) [🧮](#nowhere "Uses Hash-Functions")|[185](#nowhere "(nSLOC:169, SLOC:185, Lines:255)")|A library full of helper functions used throughout the scripts directory, &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:83)")| `forge-std/*` `solmate/*`|
+|_Interfaces (3)_|
+|[src/interfaces/ILlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaAccount.sol)|[5](#nowhere "(nSLOC:5, SLOC:5, Lines:19)")|An interface for Llama accounts., &nbsp;&nbsp;-||
+|[src/interfaces/ILlamaActionGuard.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaActionGuard.sol)|[7](#nowhere "(nSLOC:7, SLOC:7, Lines:32)")|An interface for Llama strategies., &nbsp;&nbsp;-||
+|[src/interfaces/ILlamaStrategy.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaStrategy.sol)|[23](#nowhere "(nSLOC:20, SLOC:23, Lines:108)")|An interface for Llama strategies., &nbsp;&nbsp;-||
+|_Structs (1)_|
+|[src/lib/Structs.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Structs.sol)|[37](#nowhere "(nSLOC:37, SLOC:37, Lines:54)")|A file containing the structs that are used in more than one src contract throughout the Llama codebase., &nbsp;&nbsp;-||
+|_Other (2)_|
+|[src/lib/UDVTs.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/UDVTs.sol)|[2](#nowhere "(nSLOC:2, SLOC:2, Lines:5)")|A file containing the UDVTs used throughout the Llama codebase., &nbsp;&nbsp;-||
+|[src/lib/Enums.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Enums.sol)|[10](#nowhere "(nSLOC:10, SLOC:10, Lines:12)")|A file containing the enumerables used throughout the Llama codebase., &nbsp;&nbsp;-||
+|Total (over 27 files):| [2487](#nowhere "(nSLOC:2223, SLOC:2487, Lines:4595)") |[74.15%](#nowhere "Hit:611 / Total:824")|
+
+## External imports
+
+* **@openzeppelin/proxy/Clones.sol**
+  * [src/LlamaCore.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaCore.sol)
+  * [src/LlamaFactory.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaFactory.sol)
+  * [src/LlamaLens.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaLens.sol)
+* **@openzeppelin/proxy/utils/Initializable.sol**
+  * [src/LlamaCore.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaCore.sol)
+  * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
+  * [src/lib/ERC721NonTransferableMinimalProxy.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/ERC721NonTransferableMinimalProxy.sol)
+  * [src/strategies/LlamaAbsolutePeerReview.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsolutePeerReview.sol)
+  * [src/strategies/LlamaAbsoluteQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteQuorum.sol)
+  * [src/strategies/LlamaAbsoluteStrategyBase.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteStrategyBase.sol)
+  * [src/strategies/LlamaRelativeQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaRelativeQuorum.sol)
+* **@openzeppelin/token/ERC1155/IERC1155.sol**
+  * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
+* **@openzeppelin/token/ERC1155/utils/ERC1155Holder.sol**
+  * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
+* **@openzeppelin/token/ERC20/IERC20.sol**
+  * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
+* **@openzeppelin/token/ERC20/utils/SafeERC20.sol**
+  * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
+* **@openzeppelin/token/ERC721/IERC721.sol**
+  * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
+* **@openzeppelin/token/ERC721/utils/ERC721Holder.sol**
+  * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
+* **@openzeppelin/utils/Address.sol**
+  * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
+* **@openzeppelin/utils/Base64.sol**
+  * [src/LlamaPolicyMetadata.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadata.sol)
+* **@solady/utils/LibString.sol**
+  * [src/LlamaPolicy.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicy.sol)
+  * [src/LlamaPolicyMetadata.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadata.sol)
+* **@solmate/utils/FixedPointMathLib.sol**
+  * [script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol)
+  * [src/strategies/LlamaAbsolutePeerReview.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsolutePeerReview.sol)
+  * [src/strategies/LlamaAbsoluteQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteQuorum.sol)
+  * [src/strategies/LlamaAbsoluteStrategyBase.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteStrategyBase.sol)
+  * [src/strategies/LlamaRelativeQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaRelativeQuorum.sol)
+* **forge-std/Script.sol**
+  * [script/CreateAction.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/CreateAction.s.sol)
+  * [script/DeployLlama.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployLlama.s.sol)
+  * [script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol)
+* **forge-std/Vm.sol**
+  * [script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol)
+* **script/DeployUtils.sol**
+  * [script/CreateAction.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/CreateAction.s.sol)
+  * [script/DeployLlama.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployLlama.s.sol)
 
 We encourage participants to look for bugs in the following areas:
 
@@ -103,7 +168,7 @@ The `lib/` directory and acknowledged findings from our previous audit are out o
 ## Quickstart Command
 
 ```sh
-export MAINNET_RPC_URL='<YOUR_MAINNET_RPC_URL>' && git clone https://github.com/code-423n4/2023-06-llama && cd 2023-06-llama && foundryup && forge install && forge test
+export MAINNET_RPC_URL='<YOUR_MAINNET_RPC_URL>' && rm -Rf 2023-06-llama || true && git clone https://github.com/code-423n4/2023-06-llama.git -j8 --recurse-submodules && cd 2023-06-llama && foundryup && forge install && forge test --gas-report
 ```
 
 ## Prerequisites
@@ -143,7 +208,7 @@ Duplicate `.env.example` and rename to `.env`:
 
 To confirm the deploy was successful, re-run your test suite but use the newly created contract address.
 
-## Documentation
+## Reference
 
 Run the following command to generate smart contract reference documentation from this project's NatSpec comments and serve those static files locally:
 
