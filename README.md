@@ -42,10 +42,7 @@ The [video explainer](https://www.loom.com/) provides a high-level overview of t
 |[src/LlamaPolicyMetadataParamRegistry.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadataParamRegistry.sol)|[38](#nowhere "(nSLOC:38, SLOC:38, Lines:94)")|Parameter Registry contract for onchain SVG colors and logos, &nbsp;&nbsp;[100.00%](#nowhere "(Hit:6 / Total:6)")||
 |[src/strategies/LlamaAbsoluteQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteQuorum.sol)|[38](#nowhere "(nSLOC:30, SLOC:38, Lines:63)")|A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions., &nbsp;&nbsp;[90.91%](#nowhere "(Hit:10 / Total:11)")| `@openzeppelin/*` `solmate/*`|
 |[src/strategies/LlamaAbsolutePeerReview.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsolutePeerReview.sol) [Σ](#nowhere "Unchecked Blocks")|[42](#nowhere "(nSLOC:38, SLOC:42, Lines:83)")|A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator cannot approve or disapprove their own actions., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:15 / Total:15)")| `@openzeppelin/*` `solmate/*`|
-|[script/CreateAction.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/CreateAction.s.sol)|[47](#nowhere "(nSLOC:47, SLOC:47, Lines:66)")|A script to automate action creation on a Llama instance., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:12)")| `forge-std/*` `script/*`|
-|[script/DeployLlama.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployLlama.s.sol) [🌀](#nowhere "create/create2")|[74](#nowhere "(nSLOC:74, SLOC:74, Lines:98)")|A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:30)")| `forge-std/*` `script/*`|
 |[src/LlamaPolicyMetadata.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadata.sol)|[75](#nowhere "(nSLOC:71, SLOC:75, Lines:115)")|Utility contract to compute llama policy metadata., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:39 / Total:39)")| `@openzeppelin/*` `solady/*`|
-|[src/LlamaLens.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaLens.sol) [🧮](#nowhere "Uses Hash-Functions")|[85](#nowhere "(nSLOC:77, SLOC:85, Lines:169)")|Utility contract to compute Llama contract addresses and permission IDs., &nbsp;&nbsp;[80.00%](#nowhere "(Hit:16 / Total:20)")| `@openzeppelin/*`|
 |[src/strategies/LlamaRelativeQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaRelativeQuorum.sol)|[151](#nowhere "(nSLOC:147, SLOC:151, Lines:327)")|A Llama strategy in which approval/disapproval thresholds are specified as percentages of total supply and action creators are allowed to cast approvals or disapprovals on their own actions., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:60 / Total:60)")| `@openzeppelin/*` `solmate/*`|
 |[src/LlamaFactory.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaFactory.sol) [🧮](#nowhere "Uses Hash-Functions") [🌀](#nowhere "create/create2")|[157](#nowhere "(nSLOC:133, SLOC:157, Lines:289)")|Factory for deploying new Llama instances., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:29 / Total:29)")| `@openzeppelin/*`|
 |[src/llama-scripts/LlamaGovernanceScript.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/llama-scripts/LlamaGovernanceScript.sol)|[161](#nowhere "(nSLOC:125, SLOC:161, Lines:226)")|A script that allows users to aggregate common calls on the core and policy contracts., &nbsp;&nbsp;[53.45%](#nowhere "(Hit:31 / Total:58)")||
@@ -60,7 +57,6 @@ The [video explainer](https://www.loom.com/) provides a high-level overview of t
 |_Libraries (3)_|
 |[src/lib/LlamaUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/LlamaUtils.sol) [Σ](#nowhere "Unchecked Blocks")|[17](#nowhere "(nSLOC:17, SLOC:17, Lines:27)")|A library of helper functions used throughout the Llama codebase., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:5)")||
 |[src/lib/Checkpoints.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Checkpoints.sol) [🖥](#nowhere "Uses Assembly")|[159](#nowhere "(nSLOC:131, SLOC:159, Lines:286)")|A modified version of OpenZeppelin's Checkpoints.sol., &nbsp;&nbsp;[51.43%](#nowhere "(Hit:36 / Total:70)")||
-|[script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol) [🧮](#nowhere "Uses Hash-Functions")|[185](#nowhere "(nSLOC:169, SLOC:185, Lines:255)")|A library full of helper functions used throughout the scripts directory, &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:83)")| `forge-std/*` `solmate/*`|
 |_Interfaces (3)_|
 |[src/interfaces/ILlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaAccount.sol)|[5](#nowhere "(nSLOC:5, SLOC:5, Lines:19)")|An interface for Llama accounts., &nbsp;&nbsp;-||
 |[src/interfaces/ILlamaActionGuard.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaActionGuard.sol)|[7](#nowhere "(nSLOC:7, SLOC:7, Lines:32)")|An interface for Llama strategies., &nbsp;&nbsp;-||
@@ -70,14 +66,20 @@ The [video explainer](https://www.loom.com/) provides a high-level overview of t
 |_Other (2)_|
 |[src/lib/UDVTs.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/UDVTs.sol)|[2](#nowhere "(nSLOC:2, SLOC:2, Lines:5)")|A file containing the UDVTs used throughout the Llama codebase., &nbsp;&nbsp;-||
 |[src/lib/Enums.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Enums.sol)|[10](#nowhere "(nSLOC:10, SLOC:10, Lines:12)")|A file containing the enumerables used throughout the Llama codebase., &nbsp;&nbsp;-||
-|Total (over 27 files):| [2487](#nowhere "(nSLOC:2223, SLOC:2487, Lines:4595)") |[74.15%](#nowhere "Hit:611 / Total:824")|
+|Total (over 27 files):| [2096](#nowhere "(nSLOC:2223, SLOC:2096, Lines:4595)") |[74.15%](#nowhere "Hit:611 / Total:824")|
+
+## Out of scope
+
+|File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|Description and [Coverage](#nowhere "(Lines hit / Total)")|Libraries|
+|:-|:-:|:-|:-|
+|_Contracts (1)_|
+|[src/LlamaLens.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaLens.sol) [🧮](#nowhere "Uses Hash-Functions")|[85](#nowhere "(nSLOC:77, SLOC:85, Lines:169)")|Utility contract to compute Llama contract addresses and permission IDs., &nbsp;&nbsp;[80.00%](#nowhere "(Hit:16 / Total:20)")| `@openzeppelin/*`|
 
 ## External imports
 
 * **@openzeppelin/proxy/Clones.sol**
   * [src/LlamaCore.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaCore.sol)
   * [src/LlamaFactory.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaFactory.sol)
-  * [src/LlamaLens.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaLens.sol)
 * **@openzeppelin/proxy/utils/Initializable.sol**
   * [src/LlamaCore.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaCore.sol)
   * [src/accounts/LlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/accounts/LlamaAccount.sol)
@@ -106,20 +108,10 @@ The [video explainer](https://www.loom.com/) provides a high-level overview of t
   * [src/LlamaPolicy.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicy.sol)
   * [src/LlamaPolicyMetadata.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadata.sol)
 * **@solmate/utils/FixedPointMathLib.sol**
-  * [script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol)
   * [src/strategies/LlamaAbsolutePeerReview.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsolutePeerReview.sol)
   * [src/strategies/LlamaAbsoluteQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteQuorum.sol)
   * [src/strategies/LlamaAbsoluteStrategyBase.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteStrategyBase.sol)
   * [src/strategies/LlamaRelativeQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaRelativeQuorum.sol)
-* **forge-std/Script.sol**
-  * [script/CreateAction.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/CreateAction.s.sol)
-  * [script/DeployLlama.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployLlama.s.sol)
-  * [script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol)
-* **forge-std/Vm.sol**
-  * [script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol)
-* **script/DeployUtils.sol**
-  * [script/CreateAction.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/CreateAction.s.sol)
-  * [script/DeployLlama.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployLlama.s.sol)
 
 We encourage participants to look for bugs in the following areas:
 
