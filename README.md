@@ -57,7 +57,6 @@ The [video explainer](https://www.loom.com/) provides a high-level overview of t
 |_Libraries (3)_|
 |[src/lib/LlamaUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/LlamaUtils.sol) [Σ](#nowhere "Unchecked Blocks")|[17](#nowhere "(nSLOC:17, SLOC:17, Lines:27)")|A library of helper functions used throughout the Llama codebase., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:5)")||
 |[src/lib/Checkpoints.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Checkpoints.sol) [🖥](#nowhere "Uses Assembly")|[159](#nowhere "(nSLOC:131, SLOC:159, Lines:286)")|A modified version of OpenZeppelin's Checkpoints.sol., &nbsp;&nbsp;[51.43%](#nowhere "(Hit:36 / Total:70)")||
-|[script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol) [🧮](#nowhere "Uses Hash-Functions")|[185](#nowhere "(nSLOC:169, SLOC:185, Lines:255)")|A library full of helper functions used throughout the scripts directory, &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:83)")| `forge-std/*` `solmate/*`|
 |_Interfaces (3)_|
 |[src/interfaces/ILlamaAccount.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaAccount.sol)|[5](#nowhere "(nSLOC:5, SLOC:5, Lines:19)")|An interface for Llama accounts., &nbsp;&nbsp;-||
 |[src/interfaces/ILlamaActionGuard.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/interfaces/ILlamaActionGuard.sol)|[7](#nowhere "(nSLOC:7, SLOC:7, Lines:32)")|An interface for Llama strategies., &nbsp;&nbsp;-||
