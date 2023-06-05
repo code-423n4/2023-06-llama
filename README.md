@@ -72,12 +72,8 @@ The [video explainer](https://www.loom.com/) provides a high-level overview of t
 
 |File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|Description and [Coverage](#nowhere "(Lines hit / Total)")|Libraries|
 |:-|:-:|:-|:-|
-|_Contracts (14)_|
-|[script/CreateAction.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/CreateAction.s.sol)|[47](#nowhere "(nSLOC:47, SLOC:47, Lines:66)")|A script to automate action creation on a Llama instance., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:12)")| `forge-std/*` `script/*`|
-|[script/DeployLlama.s.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployLlama.s.sol) [🌀](#nowhere "create/create2")|[74](#nowhere "(nSLOC:74, SLOC:74, Lines:98)")|A script to automate deploying the Llama factory, lens, logic contracts and root Llama instance., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:30)")| `forge-std/*` `script/*`|
+|_Contracts (1)_|
 |[src/LlamaLens.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaLens.sol) [🧮](#nowhere "Uses Hash-Functions")|[85](#nowhere "(nSLOC:77, SLOC:85, Lines:169)")|Utility contract to compute Llama contract addresses and permission IDs., &nbsp;&nbsp;[80.00%](#nowhere "(Hit:16 / Total:20)")| `@openzeppelin/*`|
-|_Libraries (3)_|
-|[script/DeployUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/script/DeployUtils.sol) [🧮](#nowhere "Uses Hash-Functions")|[185](#nowhere "(nSLOC:169, SLOC:185, Lines:255)")|A library full of helper functions used throughout the scripts directory, &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:83)")| `forge-std/*` `solmate/*`|
 
 ## External imports
 
