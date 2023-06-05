@@ -168,7 +168,7 @@ The `lib/` directory and acknowledged findings from our previous audit are out o
 ## Quickstart Command
 
 ```sh
-export MAINNET_RPC_URL='<YOUR_MAINNET_RPC_URL>' && rm -Rf 2023-06-llama || true && git clone https://github.com/code-423n4/2023-06-llama.git -j8 --recurse-submodules && cd 2023-06-llama && foundryup && forge install && forge test --gas-report
+export MAINNET_RPC_URL='<YOUR_MAINNET_RPC_URL>' && rm -Rf 2023-06-llama || true && git clone https://github.com/code-423n4/2023-06-llama.git -j8 && cd 2023-06-llama && foundryup && forge install && forge test --gas-report
 ```
 
 ## Prerequisites
