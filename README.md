@@ -149,12 +149,12 @@ We encourage participants to look for bugs in the following areas:
 
 ## Out of scope
 
-The `lib/` directory and acknowledged findings from our [Spearbit audit](https://github.com/code-423n4/2023-06-llama/blob/main/audits/Llama-Spearbit-Audit.pdf) are out of scope for this audit contest.
+The root `lib/` directory (*not* the `src/lib/` directory) and acknowledged findings from our [Spearbit audit](https://github.com/code-423n4/2023-06-llama/blob/main/audits/Llama-Spearbit-Audit.pdf) are out of scope for this audit contest.
 
 # Assumptions
 
 - The root Llama instance deployed in the `LlamaFactory.sol` constructor will govern Llama instance deployments.
-- Llama instances are self-governed and standalone.
+- Llama instances are self-governed and standalone—they are governed exclusively by policyholders of that Llama instance, and are not governed by any special accounts that are not policyholders.
 
 # Build & Tests
 
@@ -166,9 +166,9 @@ foundryup && export MAINNET_RPC_URL='<YOUR_MAINNET_RPC_URL>' && git clone https:
 
 ## Prerequisites
 
-It requires [Foundry](https://github.com/foundry-rs/foundry) installed to run. You can find instructions here: [Foundry installation](https://book.getfoundry.sh/getting-started/installation).
+[Foundry](https://github.com/foundry-rs/foundry) must be installed. You can find installation instructions in the [Foundry docs](https://book.getfoundry.sh/getting-started/installation).
 
-We use [just](https://github.com/casey/just) to save and run commands. You can find instructions here: [just installation](https://github.com/casey/just#packages).
+We use [just](https://github.com/casey/just) to save and run a few larger, more complex commands. You can find installation instructions in the [just docs](https://just.systems/man/en/). All commands can be listed by running `just -l` from the repo root, or by viewing the [`justfile`](https://github.com/code-423n4/2023-06-llama/blob/main/justfile).
 
 ### VS Code
 
@@ -198,8 +198,7 @@ Duplicate `.env.example` and rename to `.env`:
 ### Deploy and Verify
 
 - `just deploy` - deploy and verify payload on mainnet
-
-To confirm the deploy was successful, re-run your test suite but use the newly created contract address.
+- Run `just -l` or see the [`justfile`](https://github.com/code-423n4/2023-06-llama/blob/main/justfile) for other commands such as dry runs.
 
 ## Reference
 
