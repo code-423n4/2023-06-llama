@@ -126,30 +126,30 @@ We encourage participants to look for bugs in the following areas:
 ## Scoping Details
 
 - If you have a public code repo, please share it here: N/A
-- How many contracts are in scope?: 16
-- Total SLoC for these contracts?: 1750
-- How many external imports are there?: 5
-- How many separate interfaces and struct definitions are there for the contracts within scope?: 7 and 15
+- How many contracts are in scope?: 11
+- Total SLoC for these contracts?: 2096
+- How many external imports are there?: 12
+- How many separate interfaces and struct definitions are there for the contracts within scope?: 4 files
 - Does most of your code generally use composition or inheritance?: Composition
-- How many external calls?: 1
-- What is the overall line coverage percentage provided by your tests?: 90
+- How many external calls?: 2
+- What is the overall line coverage percentage provided by your tests?: 87.63%
 - Is this an upgrade of an existing system? No
 - Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: No
 - Please describe required context: N/A
 - Does it use an oracle?: No
-- Does the token conform to the ERC20 standard?:
-- Are there any novel or unique curve logic or mathematical models?: N/A
+- Does the token conform to the ERC20 standard?: No
+- Are there any novel or unique curve logic or mathematical models?: No
 - Does it use a timelock function?: Yes
-- Is it an NFT?: Yes
-- Does it have an AMM?:
+- Is it an NFT?: `LlamaPolicy.sol` is an NFT
+- Does it have an AMM?: No
 - Is it a fork of a popular project?: No
-- Does it use rollups?: Yes
-- Is it multi-chain?: Yes
+- Does it use rollups?: It should be able to be deployed on rollup chains
+- Is it multi-chain?: It should be able to be deployed an any popular EVM chain
 - Does it use a side-chain?: No
 
 ## Out of scope
 
-The `lib/` directory and acknowledged findings from our previous audit are out of scope for this audit contest.
+The `lib/` directory and acknowledged findings from our [Spearbit audit](https://github.com/code-423n4/2023-06-llama/blob/main/audits/Llama-Spearbit-Audit.pdf) are out of scope for this audit contest.
 
 # Assumptions
 
