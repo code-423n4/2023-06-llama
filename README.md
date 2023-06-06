@@ -184,11 +184,11 @@ $ forge install
 
 ## Setup
 
-Duplicate `.env.example` and rename to `.env`:
+Copy `.env.example` and rename it to `.env`. The comments in that file explain what each variable is for and when they're needed:
 
-- Add a valid mainnet URL for an Ethereum JSON-RPC client for the `MAINNET_RPC_URL` variable.
-- Add a valid Private Key for the `PRIVATE_KEY` variable.
-- Add a valid Etherscan API Key for the `ETHERSCAN_API_KEY` variable.
+- The `MAINNET_RPC_URL` variable is the only one that is required for running tests.
+- You may also want a mainnet `ETHERSCAN_API_KEY` for better traces when running fork tests.
+- The rest are only needed for deployment verification with forge scripts. An anvil default private key is provided in the `.env.example` file to facilitate testing.
 
 ### Commands
 
