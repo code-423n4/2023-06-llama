@@ -154,7 +154,7 @@ The root `lib/` directory (*not* the `src/lib/` directory) and acknowledged find
 # Assumptions
 
 - The root Llama instance deployed in the `LlamaFactory.sol` constructor will govern Llama instance deployments.
-- Llama instances are self-governed and standalone—they are governed exclusively by policyholders of that Llama instance, and are not governed by any special accounts that are not policyholders.
+- Llama instances are self-governed and standalone—they are governed exclusively by policyholders of that Llama instance, and are not governed by any special accounts that are not policyholders of that Llama instance.
 
 # Build & Tests
 
