@@ -3,8 +3,8 @@
 Llama is a governance system for onchain organizations. It uses non-transferable NFTs to encode access control, features programmatic control of funds, and includes a modular framework to define action execution rules.
 
 ## Topics
-- [Action Creation](./action-creation.md)
-- [Policy Management](./policy-management.md)
+- [Action Creation](https://github.com/code-423n4/2023-06-llama/blob/main/docs/action-creation.md)
+- [Policy Management](https://github.com/code-423n4/2023-06-llama/blob/main/docs/policy-management.md)
 
 ## System Architecture
 
