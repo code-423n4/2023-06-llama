@@ -29,7 +29,7 @@ Llama is a governance system for onchain organizations. It uses non-transferable
 
 ## Documentation
 
-The [video explainer](https://www.loom.com/share/2cd1513d4ee34aa8ace6df51e402c259) provides a high-level overview of the Llama system and the [docs](https://github.com/code-423n4/2023-06-llama/blob/main/docs/overview.md) describe the core components.
+The [video explainer](https://www.loom.com/share/2cd1513d4ee34aa8ace6df51e402c259) provides a high-level overview of the Llama system and the [docs](https://github.com/code-423n4/2023-06-llama/blob/main/docs) describe the core components.
 
 # Scope
 
