@@ -29,7 +29,7 @@ Llama is a governance system for onchain organizations. It uses non-transferable
 
 ## Documentation
 
-The [video explainer](https://www.loom.com/share/2cd1513d4ee34aa8ace6df51e402c259) provides a high-level overview of the Llama system and the [docs](https://github.com/code-423n4/2023-06-llama/blob/main/docs/overview.md) describe the core components.
+The [video explainer](https://www.loom.com/share/2cd1513d4ee34aa8ace6df51e402c259) provides a high-level overview of the Llama system and the [docs](https://github.com/code-423n4/2023-06-llama/blob/main/docs) describe the core components.
 
 # Scope
 
@@ -37,7 +37,7 @@ The [video explainer](https://www.loom.com/share/2cd1513d4ee34aa8ace6df51e402c25
 
 |File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|Description and [Coverage](#nowhere "(Lines hit / Total)")|Libraries|
 |:-|:-:|:-|:-|
-|_Contracts (14)_|
+|_Contracts (11)_|
 |[src/LlamaExecutor.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaExecutor.sol) [👥](#nowhere "DelegateCall")|[15](#nowhere "(nSLOC:12, SLOC:15, Lines:36)")|The exit point of a Llama instance. It calls the target contract during action execution., &nbsp;&nbsp;[100.00%](#nowhere "(Hit:2 / Total:2)")||
 |[src/LlamaPolicyMetadataParamRegistry.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaPolicyMetadataParamRegistry.sol)|[38](#nowhere "(nSLOC:38, SLOC:38, Lines:94)")|Parameter Registry contract for onchain SVG colors and logos, &nbsp;&nbsp;[100.00%](#nowhere "(Hit:6 / Total:6)")||
 |[src/strategies/LlamaAbsoluteQuorum.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteQuorum.sol)|[38](#nowhere "(nSLOC:30, SLOC:38, Lines:63)")|A Llama strategy that has an absolute threshold for approvals/disapprovals and the action creator can approve or disapprove their own actions., &nbsp;&nbsp;[90.91%](#nowhere "(Hit:10 / Total:11)")| `@openzeppelin/*` `solmate/*`|
@@ -54,7 +54,7 @@ The [video explainer](https://www.loom.com/share/2cd1513d4ee34aa8ace6df51e402c25
 |[src/llama-scripts/LlamaSingleUseScript.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/llama-scripts/LlamaSingleUseScript.sol)|[15](#nowhere "(nSLOC:15, SLOC:15, Lines:27)")|A template script for scripts that should only be run once., &nbsp;&nbsp;-||
 |[src/lib/ERC721NonTransferableMinimalProxy.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/ERC721NonTransferableMinimalProxy.sol) [Σ](#nowhere "Unchecked Blocks")|[96](#nowhere "(nSLOC:96, SLOC:96, Lines:192)")|A modified version of Solmate's ERC721 contract., &nbsp;&nbsp;[72.22%](#nowhere "(Hit:26 / Total:36)")| `@openzeppelin/*`|
 |[src/strategies/LlamaAbsoluteStrategyBase.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/strategies/LlamaAbsoluteStrategyBase.sol)|[141](#nowhere "(nSLOC:131, SLOC:141, Lines:307)")|A base contract for Llama strategies to inherit from with absolute approval/disapproval properties., &nbsp;&nbsp;[86.00%](#nowhere "(Hit:43 / Total:50)")| `@openzeppelin/*` `solmate/*`|
-|_Libraries (3)_|
+|_Libraries (2)_|
 |[src/lib/LlamaUtils.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/LlamaUtils.sol) [Σ](#nowhere "Unchecked Blocks")|[17](#nowhere "(nSLOC:17, SLOC:17, Lines:27)")|A library of helper functions used throughout the Llama codebase., &nbsp;&nbsp;[0.00%](#nowhere "(Hit:0 / Total:5)")||
 |[src/lib/Checkpoints.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Checkpoints.sol) [🖥](#nowhere "Uses Assembly")|[159](#nowhere "(nSLOC:131, SLOC:159, Lines:286)")|A modified version of OpenZeppelin's Checkpoints.sol., &nbsp;&nbsp;[51.43%](#nowhere "(Hit:36 / Total:70)")||
 |_Interfaces (3)_|
@@ -66,14 +66,15 @@ The [video explainer](https://www.loom.com/share/2cd1513d4ee34aa8ace6df51e402c25
 |_Other (2)_|
 |[src/lib/UDVTs.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/UDVTs.sol)|[2](#nowhere "(nSLOC:2, SLOC:2, Lines:5)")|A file containing the UDVTs used throughout the Llama codebase., &nbsp;&nbsp;-||
 |[src/lib/Enums.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/lib/Enums.sol)|[10](#nowhere "(nSLOC:10, SLOC:10, Lines:12)")|A file containing the enumerables used throughout the Llama codebase., &nbsp;&nbsp;-||
-|Total (over 27 files):| [2096](#nowhere "(nSLOC:2223, SLOC:2096, Lines:4595)") |[74.15%](#nowhere "Hit:611 / Total:824")|
+|Total (over 23 files):| [2096](#nowhere "(nSLOC:1856, SLOC:2096, Lines:4007)") |[87.63%](#nowhere "Hit:595 / Total:679")|
 
-## Out of scope
+### All other source contracts (not in scope)
 
 |File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|Description and [Coverage](#nowhere "(Lines hit / Total)")|Libraries|
 |:-|:-:|:-|:-|
 |_Contracts (1)_|
 |[src/LlamaLens.sol](https://github.com/code-423n4/2023-06-llama/blob/main/src/LlamaLens.sol) [🧮](#nowhere "Uses Hash-Functions")|[85](#nowhere "(nSLOC:77, SLOC:85, Lines:169)")|Utility contract to compute Llama contract addresses and permission IDs., &nbsp;&nbsp;[80.00%](#nowhere "(Hit:16 / Total:20)")| `@openzeppelin/*`|
+|Total (over 1 file):| [85](#nowhere "(nSLOC:77, SLOC:85, Lines:169)") |[80.00%](#nowhere "Hit:16 / Total:20")|
 
 ## External imports
 
