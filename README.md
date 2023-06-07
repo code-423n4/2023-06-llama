@@ -21,6 +21,10 @@
 
 ## Automated Findings / Publicly Known Issues
 
+Automated findings output for the audit can be found [here](https://gist.github.com/itsmetechjay/610f1b31f419156f06898ee10c89402d).
+
+*Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
+
 The results of the [slither report](https://github.com/code-423n4/2023-06-llama/blob/main/.slither-report) and acknowledged findings from our [Spearbit audit](https://github.com/code-423n4/2023-06-llama/blob/main/audits/Llama-Spearbit-Audit.pdf) are out of scope for this audit contest.
 
 # Overview
