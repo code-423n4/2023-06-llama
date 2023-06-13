@@ -12,10 +12,10 @@
   - Lookout awards: $4,000 USDC
   - Scout awards: $500 USDC
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2023-05-llama/submit)
+- Submit findings [using the C4 form](https://code4rena.com/contests/2023-06-llama/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts June 6, 2023 20:00 UTC
-- Ends June 13, 2023 20:00 UTC
+- Ends June 14, 2023 20:00 UTC
 
 ✨ All participating wardens are encouraged to submit an Analysis prior to the closing date. [Guidelines and FAQ can be found here.](https://code4rena.notion.site/Analyses-Guidelines-and-FAQ-2808a71e08e44c81a985527194f5f118) 
 
