@@ -1,0 +1,712 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q2-2023 / llama-jun06
+==============================================================
+
+[05/24/2023 21:24] itsmetechjay (pinned)
+👋 Hello and welcome to the audit channel for the $60,500 USDC **Llama **audit!
+
+📆 Audit opens Tuesday, 06 June 2023 20:00 (20:00 UTC) and runs through Tuesday, 13 June 2023 20:00 (20:00 UTC) (7 days).
+
+Please give a warm welcome to the Llama team, particularly @Austin | Llama 🦙, @dd0sxx, @0xrajath, @efecarranza and @mds1, who will be available for questions either here in the channel or via DM in the EST timezone.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/contests/2023-06-llama
+
+{Reactions}
+pepe_llama (6) 
+
+[05/24/2023 21:25] itsmetechjay
+Let's please limit conversation until the audit begins. Thanks!
+
+
+[05/24/2023 21:25] itsmetechjay
+Pinned a message.
+
+
+[06/06/2023 20:04] austin.green
+Hi everyone - we're excited to kick off our contest! Feel free to post any general questions here or DM one of us for questions related to findings. We look forward to seeing all of your submissions :pepe_llama:
+
+{Reactions}
+👋 (6) 
+
+[06/06/2023 20:04] oualidpro#8727
+please does the src/LlamaLens.sol file included in the scope ?
+
+
+[06/06/2023 20:05] austin.green
+No it's out of scope for the contest
+
+
+[06/06/2023 20:05] oualidpro#8727
+thx
+
+
+[06/06/2023 20:05] efecarranza
+Hi all, part of the Llama team. Looking forward to the next week!
+
+{Reactions}
+👋 (13) 
+
+[06/06/2023 20:15] dd0sxx
+Hi everyone! I'm a smart contract engineer at Llama. Looking forward to the audit contest ^_^
+
+{Reactions}
+👋 (18) 
+
+[06/06/2023 20:28] helloshreyas
+Hey everyone! I'm a cofounder at Llama, excited to kick off the contest and see any new findings
+
+{Reactions}
+👋 (19) 🫡 (2) 
+
+[06/06/2023 21:09] asui0944
+Hi everyone! 
+This is going to be my first contest ever to test my skills . Wish me luck👍
+
+{Reactions}
+🦙 (12) 👌 
+
+[06/06/2023 21:09] austin.green
+Good luck and thanks for participating!
+
+{Reactions}
+🦙 (3) 
+
+[06/07/2023 07:27] 0xpathfindr
+Is it safe to assume that all findings indicated in your previous audit have been addressed and fixed?
+
+{Reactions}
+👍 (3) 
+
+[06/07/2023 09:27] 0xugo
+First one for me as well 🐤
+
+{Reactions}
+🦙 (3) 
+
+[06/07/2023 09:31] cloudellie (pinned)
+📢 Wardens - **the submission form for Analyses is now live for this audit! **You can submit your Analysis via the contest page on the C4 website.
+
+⚠️ **Important note:** currently, Analyses *cannot be edited after submitting. *We suggest saving your work locally until you’re ready to submit your final draft. 
+
+Analyses: Guidelines and FAQ
+https://code4rena.notion.site/Analyses-Guidelines-and-FAQ-2808a71e08e44c81a985527194f5f118?pvs=4
+
+{Embed}
+https://code4rena.notion.site/Analyses-Guidelines-and-FAQ-2808a71e08e44c81a985527194f5f118?pvs=4
+Analyses: Guidelines and FAQ
+Currently, Analyses cannot be edited after submitting. We suggest saving your work locally until you’re ready to submit your final draft.
+
+
+[06/07/2023 09:32] cloudellie
+Pinned a message.
+
+
+[06/07/2023 10:23] 0xrajath
+Hey Everyone! I'm an engineer at Llama as well. Looking forward to the contest!! 🦙
+
+{Reactions}
+👍 (3) 
+
+[06/07/2023 10:24] 0xrajath
+Yup. All findings have either been fixed or acknowledged with the tradeoffs. You can find that all as part of the audit report.
+
+
+[06/07/2023 14:11] t1moh
+Good codebase
+
+{Reactions}
+🫡 (3) 
+
+[06/07/2023 14:15] austin.green
+Thank you!
+
+
+[06/07/2023 14:43] itsmetechjay (pinned)
+Wardens - please note that the automated findings output (AKA the winning bot race report 🏆, submitted by @IllIllI) is posted below. 
+
+These are considered publicly known issues and are not eligible for awards.
+
+🤖 **Automated findings: **
+https://gist.github.com/itsmetechjay/610f1b31f419156f06898ee10c89402d
+
+📄 **Code4rena submission guidelines and automated findings policy: **
+https://docs.code4rena.com/roles/wardens/submission-policy#automated-findings-ineligible
+
+The above link has also been added to the contest README.
+
+
+[06/07/2023 14:43] itsmetechjay
+Pinned a message.
+
+
+[06/08/2023 06:05] dicethedev
+:hi5: :hi5:
+
+
+[06/08/2023 10:38] CecilNg#4208
+Any docs thag could help??
+
+
+[06/08/2023 11:45] 0xrajath
+Everything you would need should be in https://code4rena.com/contests/2023-06-llama.
+
+And the repository is very well documented, along with setup instructions, natspec, system context diagrams and a video walkthrough.
+
+
+[06/08/2023 12:44] austin.green
+And docs can be found here https://github.com/code-423n4/2023-06-llama/tree/main/docs
+
+{Embed}
+https://github.com/code-423n4/2023-06-llama/tree/main/docs
+2023-06-llama/docs at main · code-423n4/2023-06-llama
+Contribute to code-423n4/2023-06-llama development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q2-2023 - llama-jun06 [1111041272619212810].txt_Files/fa69520e-c4e7-4fe6-8be0-d5fbd128d29b-3CF98
+
+{Reactions}
+✅ 
+
+[06/08/2023 12:49] dicethedev
+To be sincere. Kudos to the team for making a well and clear documentation.
+
+{Reactions}
+👍 (8) pepe_llama (4) 🦙 (3) 
+
+[06/08/2023 18:50] austin.green
+We’re going live on twitter spaces in 10 minutes feel free to join to learn more about Llama and ask any questions! https://twitter.com/llama/status/1666843727355101184?s=46&t=PS6OqGJqFtDOLH_UXii4jA
+
+{Embed}
+Llama (@llama)
+https://twitter.com/llama/status/1666843727355101184?s=46&t=PS6OqGJqFtDOLH_UXii4jA
+Join us in a few hours! https://t.co/2ILyOYz8WJ
+Code4rena - ARCHIVE-Q2-2023 - llama-jun06 [1111041272619212810].txt_Files/Fx--WoHWcAEz1B1-CD2CE.jpg
+Twitter
+
+
+[06/09/2023 04:56] 0xray44
+is the percent coverage from the past spearbit audit?
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2023 - llama-jun06 [1111041272619212810].txt_Files/image-272B3.png
+
+
+[06/09/2023 06:26] 0xhuy0512
+hey, sorry for asking dumb question but this Llama is different than DefiLlama right?
+
+
+[06/09/2023 09:06] illilli000
+the coverage numbers are the values given by `forge coverage` on the code in the c4 repo
+
+
+[06/09/2023 09:09] 0xray44
+Okay thank you
+
+{Reactions}
+👍 
+
+[06/09/2023 09:29] helloshreyas
+Yes that's right
+
+
+[06/09/2023 10:05] dicethedev
+@Shreyas 🦙 Please I drop a DM for you. Thanks!
+
+{Reactions}
+👍 
+
+[06/09/2023 11:52] zaevlad
+Hey, I just want to be sure I got it right: so at first user creates an Action, then it shoud be approve\disapproved via _cast functions, later it goes to Queue, and finaly user calls Execute func. Is it correct?
+
+
+[06/09/2023 13:45] dd0sxx
+rougly speaking yes. this diagram does a good job showing the action flow
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2023 - llama-jun06 [1111041272619212810].txt_Files/llama-action-state-machine-6AFD1.png
+
+
+[06/09/2023 13:46] dd0sxx
+approvals happen in the active state, if the threshhold is reached the action is then in the approved state. the action gets queued, which allows users to disapprove the action
+
+{Reactions}
+👍 
+
+[06/09/2023 13:46] dd0sxx
+if the action is not disapproved, it can then be executed, or it will expire if not executed in time
+
+
+[06/09/2023 13:46] dd0sxx
+at any stage the action creator and cancel the action, and if the action does not get approved, or does get disapproved, the action will move to the failed state which is terminal
+
+
+[06/09/2023 16:05] zaevlad
+dm you, thanks
+
+{Reactions}
+👍 
+
+[06/09/2023 22:01] co0nan
+Is the code base little different from what Spearbit audited or no changes at all?
+
+
+[06/09/2023 22:02] austin.green
+We have made some minor changes since the spearbit audit (mostly style changes). I can provide a list if you'd like
+
+
+[06/09/2023 22:03] co0nan
+thanks you, that will be helpful. 
+So the issues from that audit are fixed right?
+
+
+[06/09/2023 22:03] austin.green
+Yeah every issue is fixed or acknowledged!
+
+
+[06/09/2023 22:04] austin.green
+The only change we made that isn't a documentation change or naming change is adding the ability for the root llama instance to add multiple account implementation contracts similar to how strategies work
+
+
+[06/09/2023 22:05] austin.green
+```
+* New `ILlamaAccount` interface
+* Replacing all occurences of `LlamaAccount` with `ILlamaAccount`
+throughout the codebase.
+* `LlamaAccount` now implements `ILlamaAccount`
+* `authorizedAccountLogics` mapping in `LlamaFactory`
+* Account Logic contracts authorized in `LlamaFactory` as part of the
+factory construction and `authorizeAccountLogic()` function which sets
+`authorizedAccountLogics` mapping to true and emits
+`AccountLogicAuthorized` event.
+* `_deployAccounts` in `LlamaCore` now has a check to see if the Llama
+Account logic contract is an authorized one and reverts with a
+`UnauthorizedAccountLogic` error if not.
+* Updated `computeLlamaAccountAddress` function signature in
+`LlamaLens`.
+* Relevant Tests and updated existing tests to reflect changes in event
+and function signatures.
+* Updated initial parameters in input jsons used for initial deploy and
+action creation.
+* Removing all occurences of `payable` for `ILlamaAccount`
+* `ILlamaAccount` `initialize()` function takes `bytes memory config` as
+input parameter instead of `string memory name` to make it generalizable
+for future Account Logic contracts.
+* Path change: `src/LlamaAccount.sol` -> `src/accounts/LlamaAccount.sol`
+* Removing certain indexed fields on `StrategyAuthorized`,
+`AccountCreated` and `ScriptAuthorized` events which are unique and have
+no need to be indexed.
+```
+
+{Reactions}
+thankyou (4) 
+
+[06/09/2023 22:06] austin.green
+these are the changes that needed to be made to implement this feature
+
+
+[06/10/2023 16:21] co0nan
+who is allowed to `_deploy` new instance? is it an owner privilege?
+
+
+[06/10/2023 17:50] dd0sxx
+the llama factory deploys new instanves and that is governed by the root llama instance controlled by Llama the organization (the sponsors of the contest)
+
+{Reactions}
+thankyou (2) 
+
+[06/11/2023 05:34] ernestognw
+Hey, what is the rationale to pass the whole `description` in `memory` during Action creation? I'm asking for LlamaCore.sol's `createAction`
+
+
+[06/11/2023 10:12] mrpotatomagic
+@Austin | Llama 🦙 dmed you
+
+{Reactions}
+pepe_llama 
+
+[06/11/2023 12:28] austin.green
+Do you mean instead of passing it as calldata?
+
+
+[06/11/2023 17:11] ernestognw
+Oh no, it's because it's not stored anywhere other than emitted by the `ActionCreated` event and hashed in `_getCreateActionTypedDataHash`. I wonder if there's a reason I'm missing to pass the value in parameters (either `calldata` or `memory`) instead of not passing it at all or just passing its hash.
+
+
+[06/11/2023 17:45] dd0sxx
+we need the description in the event so we can save it to our db and display it on the ui
+
+{Reactions}
+👍 (3) 
+
+[06/12/2023 13:20] elcid2000
+@Austin | Llama 🦙 just dmed you with a question!
+
+{Reactions}
+👍 
+
+[06/12/2023 14:20] dd0sxx
+dm me
+
+
+[06/12/2023 14:49] golanger
+Ok added you first
+
+
+[06/12/2023 16:24] 0xpathfindr
+Hey @Austin | Llama 🦙  & @dd0sxx Sent you a friend request.
+
+{Reactions}
+👍 (3) 
+
+[06/13/2023 19:20] saaj_110
+i have a finding to submit but c4 site is not opening @kartoonjoy
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2023 - llama-jun06 [1111041272619212810].txt_Files/image-EF82D.png
+
+
+[06/13/2023 19:20] kartoonjoy
+Thanks SAAJ. We're aware of the issue. Working on a fix now and next steps. Apologies for the inconveniece. Please stay tuned.
+
+
+[06/13/2023 19:21] saaj_110
+will the time extend for Llama??
+
+
+[06/13/2023 19:22] kartoonjoy
+working to make that determination now. Please hold
+
+{Reactions}
+👍 (4) 
+
+[06/13/2023 19:30] itsmetechjay
+@🐺wardens Important update:  since our website is having some unexpected downtime, which is affecting this contest's submission form, we're extending the submission deadline by 24 hours. 
+
+(We're in the process of updating our website, etc. but you should see that change reflected everywhere soon.)
+
+{Reactions}
+👍 (20) ✅ (7) 🥲 (4) 
+
+[06/13/2023 19:31] co0nan
+I thought it will be 2 hours max but 24, website was working 15 mins ago. 😄
+
+
+[06/13/2023 19:32] 0xsorrynotsorry
+Now you should send an alpha finding 🙂
+
+{Reactions}
+🔥 (5) 
+
+[06/13/2023 19:32] co0nan
+ok but don't mark it LQ pls, lol
+
+{Reactions}
+🤞 hi5 🫡 
+
+[06/13/2023 19:37] sm3_ss
+when i login to my c4 account message
+
+
+[06/13/2023 19:38] sm3_ss
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2023 - llama-jun06 [1111041272619212810].txt_Files/Screenshot_from_2023-06-13_23-46-29-57347.png
+
+
+[06/13/2023 19:44] kartoonjoy
+https://discord.com/channels/810916927919620096/1111041272619212810/1118261009455525979
+
+
+[06/13/2023 19:54] kartoonjoy
+Alright who was it that was hoping for more time to submit their plethora of findings?!?! 😂
+
+{Reactions}
+😂 (9) 💯 
+
+[06/13/2023 20:32] turvec_dev
+🤗 we celebrate grace
+
+{Reactions}
+🤣 (3) 🙌 
+
+[06/13/2023 21:08] itsmetechjay
+@🐺wardens Looks like submission form is back up and functioning. 🎉
+
+{Reactions}
+🫡 (9) 
+
+[06/14/2023 01:44] torpedopistolixc41
+hello it maybe too primitve question but when ı try to forge build in llama code after cloning it gives me this error
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2023 - llama-jun06 [1111041272619212810].txt_Files/Ekran_Alnts-61B19.PNG
+
+
+[06/14/2023 01:45] torpedopistolixc41
+no explanation just Solc error
+
+
+[06/14/2023 01:45] torpedopistolixc41
+using WSL Ubuntu
+
+
+[06/14/2023 01:54] austin.green
+Did you follow the instructions in the readme? Maybe try the quick start command. We were able to get that running on another Linux distro
+
+
+[06/14/2023 01:57] austin.green
+https://github.com/code-423n4/2023-06-llama#quickstart-command
+
+{Embed}
+https://github.com/code-423n4/2023-06-llama
+GitHub - code-423n4/2023-06-llama
+Contribute to code-423n4/2023-06-llama development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q2-2023 - llama-jun06 [1111041272619212810].txt_Files/fa69520e-c4e7-4fe6-8be0-d5fbd128d29b-3CF98
+
+
+[06/14/2023 09:38] felipenovaesrocha
+06/14/2023 20:00 a countdown
+
+
+[06/14/2023 13:43] 0xrajath
+Just delete the `.svm/` directory in your home directory and do `foundryup` and `forge build` again. It happens sometimes with forge.
+
+
+[06/14/2023 13:44] 0xrajath
+It's a folder for managing solc versions
+
+{Reactions}
+👍 
+
+[06/14/2023 13:44] 0xrajath
+Just do `rm -rf ~/.svm`
+
+
+[06/14/2023 13:46] torpedopistolixc41
+i see  thanks ill do it.its just hard to do troubleshooting on foundry and im fairly new
+
+
+[06/14/2023 13:46] 0xrajath
+Feel free to join the Foundry support group on Telegram as well : https://t.me/foundry_support
+
+{Embed}
+https://t.me/foundry_support
+Foundry Support
+You can view and join @foundry_support right away.
+
+
+[06/14/2023 13:46] 0xrajath
+They're very helpful over there
+
+
+[06/14/2023 13:47] torpedopistolixc41
+oh perfect ^^
+
+{Reactions}
+👍 
+
+[06/14/2023 15:15] torpedopistolixc41
+still doesnt work it just hangs for almost 1 hour
+
+
+[06/14/2023 15:17] 0xrajath
+Might be worth checking on the Foundry Support channel then. Seems like a foundry issue.
+
+
+[06/14/2023 16:13] torpedopistolixc41
+posted on github about the error
+
+{Reactions}
+👍 
+
+[06/14/2023 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺wardens The **Llama** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢announcements for regular updates on how the audit is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a Contest-Admin if you have questions along the way!
+
+{Reactions}
+✅ (13) 🦙 (6) C4Keycap (3) 🥺 
+
+[06/14/2023 21:19] golanger
+Really enjoyed this audit. All the best to the team going forwards 🙏
+
+{Reactions}
+🚀 (2) 🙏 (2) 
+
+[06/14/2023 21:19] austin.green
+Thank you for contributing! We're excited to review the submissions
+
+{Reactions}
+✅ (5) 🚀 (4) 
+
+[06/14/2023 21:20] golanger
+🙏🙏
+
+
+[06/15/2023 03:10] snow24#2736
+🙌 🙌
+
+
+[06/15/2023 03:52] sm3_ss
+👍
+
+
+[06/16/2023 15:38] pppf00l
+🤯
+
+
+[07/06/2023 16:00] raihan3727
+🧐
+
+{Reactions}
+C4Keycap (2) 
+
+[07/06/2023 19:46] saq_143
+😜
+
+{Reactions}
+😋 
+
+[07/13/2023 14:52] thebrittfactor
+🤑 🎉  Awards for **Llama**
+
+$9,090.03 USDC » @auditor0517 
+$8,787.84 USDC » @dirk_y
+$7,540.46 USDC » @comradeKtg 
+$3,407.67 USDC » @0xnev 
+$3,075.55 USDC » @Toshii 
+$3,069.12 USDC » @kutu 
+$2,702.90 USDC » @rvierdiiev 
+$2,628.74 USDC » @T1MOH 
+$730.12 USDC » @0xSmartContract 
+$565.79 USDC » @libratus 
+$514.84 USDC » @Sathish9098  
+$495.03 USDC » @xuwinnie 
+$446.81 USDC » @Atree 
+$446.81 USDC » @BLOS 
+$361.13 USDC » @JCN  
+$331.97 USDC » @Rolezn 
+$277.80 USDC » @naman1778 
+$237.05 USDC » @matrix_0wl 
+$128.38 USDC » @QiuhaoLi 
+$128.38 USDC » @joestakey 
+$80.16 USDC » @minhquanym 
+$72.02 USDC » @VictoryGod 
+$54.53 USDC » @MiniGlome (Mlome) 
+$54.53 USDC » @Co0nan 
+$54.53 USDC » @ernestognw 
+$54.53 USDC » @0xcm 
+$54.53 USDC » @tsar  
+$54.53 USDC » @Madalad 
+$54.53 USDC » @sces60107 | GimelSec 
+$54.53 USDC » @Go-Langer 
+$54.53 USDC » @n1punp 
+$54.53 USDC » @flacko 
+$54.53 USDC » @Udsen 
+$49.44 USDC » @David Giladi 
+$48.22 USDC » @neko_nyaaaaaaaaaaaaaaaaaaaaaaaaa 
+$48.22 USDC » @mahdiRostami 
+$48.22 USDC » @K42 Ψ 
+$48.22 USDC » @peanuts 
+$25.63 USDC » @0xHati  
+$25.63 USDC » @qpzm 
+$23.81 USDC » @lsaudit 
+$23.81 USDC » @SAAJ  
+$23.81 USDC » @Raihan 
+$23.81 USDC » @Rageur 
+$23.81 USDC » @petrichor🦖 
+$23.81 USDC » @SAQ 
+$23.81 USDC » @hunter_w3b 
+$23.81 USDC » @Arman123 
+$23.81 USDC » @SM3_SS 
+$23.81 USDC » @sebghatullah 
+
+🏁 Findings summary
+
+High risk findings: 8 total, 2 unique
+Med risk findings: 27 total, 3 unique
+Gas reports: 17
+QA reports: 13
+
+Awards will be distributed on Polygon within the next week.  Congratulations all!  💸 💸 💸
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+🙏 (9) 🚀 (5) 👽 (4) 🎉 (5) 
+
+[07/13/2023 14:54] t1moh
+Wow first 2k
+
+{Reactions}
+hi5 (9) 
+
+[07/13/2023 14:57] 0xnevi
+First top 5!! Time to work even harder 😄😄. Special thanks to @Austin | Llama 🦙 for his patience
+
+{Reactions}
+🙏 (4) 10_10 (2) 
+
+[07/13/2023 14:59] mahdirostami
+Third contest 👌🏻
+
+
+[07/13/2023 14:59] mahdirostami
+How can I see comments on my finding?
+
+
+[07/13/2023 14:59] austin.green
+Congrats to everyone and thank you again for helping us secure Llama! We'll let you know when we launch
+
+{Reactions}
+👍 
+
+[07/13/2023 15:00] austin.green
+And if you're ever building a project that requires smart contract governance/administration don't hesitate to reach out. I really enjoyed all the conversations I had with wardens. You've given us a lot of food for thought on how to improve Llama before launching
+
+{Reactions}
+👍🏻 (5) ✅ (4) 🙏 (4) 🫡 (4) 
+
+[07/13/2023 15:01] mahdirostami
+Thank you 👌🏻
+
+
+[07/13/2023 15:01] CecilNg#4208
+Thank you
+
+
+[07/13/2023 15:02] austin.green
+Thank you! I had a great time chatting through things
+
+{Reactions}
+❤️ (5) 
+
+[07/13/2023 16:43] kemkemcrypt
+I summited, I do not know why my name is not among.
+
+{Reactions}
+🕊️ (2) 
+
+[07/13/2023 18:04] ihtishamsudo
+Dw it happens, keep trying
+
+{Reactions}
+❤️ 
+
+[07/13/2023 18:05] kemkemcrypt
+😭😭
+
+
+[07/14/2023 00:18] chaduke3730
+@T1MOHcongrats, good job
+
+{Reactions}
+🥳 (2) 
+
+==============================================================
+Exported 111 message(s)
+==============================================================
